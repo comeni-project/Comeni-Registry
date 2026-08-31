@@ -5,7 +5,21 @@ states: [trimmed, deduplicated, subsampled]
 # pattern over https, so `fromFilePairs` works for `/data/*_R{1,2}.fastq.gz` and fails
 # for a URL. A list is taken as an explicit set of mates. The branch lives here rather
 # than in the compiler for the usual reason — mendel-compiler has no idea what a FASTQ is.
-entry_channel: "( params.input instanceof List ? Channel.of([ [id: 'test'], params.input.collect { file(it, checkIfExists: true) } ]) : Channel.fromFilePairs(params.input, checkIfExists: true).map { id, reads -> [ [id: id], reads ] } )"
+# **`{param}` is substituted at materialisation and is the ONLY substitution.** Not a
+# template language — one placeholder, matched as the literal seven characters, the same
+# argument as Plan 1.15's `transform`. `{` is legal Groovy and appears in these expressions
+# already, so everything else is left alone.
+#
+# It replaced a literal `params.<name>`, which fused a PIPELINE decision into a TYPE: two
+# channels of this type had one param and were therefore one hole, whatever the drawing said.
+#
+# **`param: input` is declared, and this is the type that needs it.** Every other type
+# reads `params.<last segment of its id>`; this one has read `params.input` since the
+# spine was first emitted. Without the declaration the derivation would rename it to
+# `params.reads` — a change to what a laboratory types, arriving inside a change that is
+# supposed to rename nothing but Groovy locals.
+param: input
+entry_channel: "( params.{param} instanceof List ? Channel.of([ [id: 'test'], params.{param}.collect { file(it, checkIfExists: true) } ]) : Channel.fromFilePairs(params.{param}, checkIfExists: true).map { id, reads -> [ [id: id], reads ] } )"
 test_data:
   - "https://raw.githubusercontent.com/nf-core/test-datasets/72a702d346833d5523bc40d032323ea548603b00/testdata/GSE110004/SRR6357070_1.fastq.gz"
   - "https://raw.githubusercontent.com/nf-core/test-datasets/72a702d346833d5523bc40d032323ea548603b00/testdata/GSE110004/SRR6357070_2.fastq.gz"

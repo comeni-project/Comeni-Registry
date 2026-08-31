@@ -1,5 +1,12 @@
 declares: vocabulary
 id: annotation.gtf
 states: []
-entry_channel: "Channel.fromPath(params.gtf, checkIfExists: true).map { gtf -> [ [id: gtf.baseName], gtf ] }"
+# **`{param}` is substituted at materialisation and is the ONLY substitution.** Not a
+# template language — one placeholder, matched as the literal seven characters, the same
+# argument as Plan 1.15's `transform`. `{` is legal Groovy and appears in these expressions
+# already, so everything else is left alone.
+#
+# It replaced a literal `params.<name>`, which fused a PIPELINE decision into a TYPE: two
+# channels of this type had one param and were therefore one hole, whatever the drawing said.
+entry_channel: "Channel.fromPath(params.{param}, checkIfExists: true).map { gtf -> [ [id: gtf.baseName], gtf ] }"
 test_data: "https://raw.githubusercontent.com/nf-core/test-datasets/72a702d346833d5523bc40d032323ea548603b00/reference/genes.gtf"

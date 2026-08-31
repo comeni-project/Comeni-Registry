@@ -12,6 +12,23 @@
 # `layout:` and is unenforced.
 name: comeni-registry-examples
 version: 0.1.0
+
+# ── what this layer needs from Mendel ─────────────────────────────────────────────────────
+#
+# **2, because `entry_channel` carries a `{param}` placeholder.** A Mendel that does no
+# substitution would write the seven literal characters `params.{param}` into Groovy and emit a
+# pipeline that passes every check on its side and dies at launch with a syntax error, on a
+# machine with no idea a registry was involved. `MD0020` refuses it and names the cause.
+#
+# Bump this only when an older Mendel would read the layer WRONGLY rather than not at all — a
+# narrower test than "the format changed", and the whole value of the number. A new optional
+# field an older reader ignores is not a bump.
+#
+# **The first bump gets a worse message than every later one**, and that is inherent rather than
+# a defect: a Mendel predating the floor has no `requires_format` field, so `extra="forbid"`
+# refuses this file with a Pydantic error instead of MD0020's sentence. There is exactly one
+# such step and this is it.
+requires_format: 2
 licence: CC-BY-4.0
 description: >-
   Hand-written registry data sufficient to build and test the RNA-seq spine. Not a
