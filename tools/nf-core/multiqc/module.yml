@@ -1,0 +1,10 @@
+declares: module
+id: nf-core/multiqc
+licence: MIT
+upstream:
+  repo: https://github.com/nf-core/modules.git
+  sha: 98403d15b0e50edae1f3fec5eae5e24982f1fade
+  path: modules/nf-core/multiqc
+excluded:
+- tests
+digest: sha256:bc63181d1254c7497937e46efe668b9fbdb9c750444011c1ba931608bbc092c9

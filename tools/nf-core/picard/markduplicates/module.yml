@@ -1,0 +1,10 @@
+declares: module
+id: nf-core/picard/markduplicates
+licence: MIT
+upstream:
+  repo: https://github.com/nf-core/modules.git
+  sha: 6d46786420b4d7bc88eba026eb389c0c5535d120
+  path: modules/nf-core/picard/markduplicates
+excluded:
+- tests
+digest: sha256:d0d0f2a87309f51f18972b51f00ac5aa74dd8f0ac92c79e047aff1c897ae3844

@@ -33,16 +33,19 @@ distribution model real, and doing that before there is much data is cheaper tha
 
 ## What is in it
 
-| Directory | What it declares |
-|---|---|
-| `contracts/` | what a module consumes, produces and is called with |
-| `rules/` | decision tables: measured data → a value or a module |
-| `vocabularies/` | the states each type may carry, and how it enters a pipeline |
-| `measurements/` | what can be measured, its kind, bounds and citation |
+Every file says what it is in a `declares:` line, so **the kind is in the file and not in the
+path**:
 
-`registry.yml` names the layer. It sits at the root beside `contracts/` rather than inside
-it, because Mendel globs `*.yml` recursively under `contracts/` and would otherwise try to
-read the manifest as a module contract.
+| `declares:` | What it declares |
+|---|---|
+| `contract` | what a module consumes, produces and is called with |
+| `module` | where a tool's own source came from, at which commit, under which licence |
+| `rule` | decision tables: measured data → a value or a module |
+| `vocabulary` | the states each type may carry, and how it enters a pipeline |
+| `measurement` | what can be measured, its kind, bounds and citation |
+| `role` | the jobs a contract can do — the only thing a tier-3 rule may target |
+
+`registry.yml` names the layer and declares nothing. It sits at the root.
 
 ## Contributing
 
@@ -59,11 +62,16 @@ in the main repository.
 
 ## Licence
 
-Registry data is [CC-BY-4.0](LICENSE). Contracts cite papers, so attribution matters.
+The **declarations** are [CC-BY-4.0](LICENSE). Contracts cite papers, so attribution matters.
 
-Mendel's source code is Apache-2.0 and lives in
-[Comeni-Labs](https://github.com/comeni-project/Comeni-Labs). The nf-core modules these
-contracts describe keep their own licences and are not redistributed here.
+The **tool source** under `tools/**/module/` is not ours. Each `module.yml` names the SPDX
+identifier its code arrives under, and the text of each is in `LICENSES/<identifier>.txt` — one
+file per licence, which is the REUSE convention, and never one notice per module. At 1,600 tools
+a notice per tool is that many near-identical copies of the MIT text, in every diff, that nobody
+reads.
+
+Mendel's own source code is Apache-2.0 and lives in
+[Comeni-Labs](https://github.com/comeni-project/Comeni-Labs).
 
 ## How this layer is arranged
 
@@ -79,23 +87,65 @@ registry with no convention is one where every contributor invents their own.
 
 ```
 registry.yml                       this layer's account of itself
+LICENSES/                          one file per licence the vendored code arrives under
 roles.yml                          the jobs a contract can do
 measurements/                      facts about data, true regardless of tool
 types/                             types many tools touch — fastq.reads, alignment.bam
 tools/nf-core/star/                everything STAR, in one place
-    align.contract.yml
-    genomegenerate.contract.yml
-    genome.index.star.type.yml     only STAR's own modules use it
+    genome.index.star.yml          shared by the subtools, so it sits at the TOOL level
+    align/
+        contract.yml               the binding: ports, states, roles, params
+        module.yml                 where module/ came from, and under what terms
+        module/                    upstream's tree, verbatim. NEVER hand-edited
+    genomegenerate/
+        contract.yml  module.yml  module/
 rules/                             decisions *between* tools, belonging to neither
 ```
+
+**A thing belongs at the shallowest level that owns it.** `genome.index.star` is produced by
+`star/genomegenerate` and consumed by `star/align`, so it is the *tool's* and sits one level up.
+A contract binds to exactly one module, so it sits in that module's directory.
+
+**Subtool directories are required, not stylistic.** nf-core ships `star/align` and
+`star/genomegenerate` as separate modules, each with its own source and its own pin, so each
+needs a `module/` of its own.
 
 **`tools/`, not `modules/`**, because `genome.index.star` is produced by one STAR module and
 consumed by another — grouping per module would split it again, which is the problem this
 layout was made to fix.
 
+**`module/` is the one directory name that is not free.** Everywhere else the loader reads
+`declares:` and ignores the path; a tool's source is found by the directory it sits in, because
+upstream ships whatever it ships — `main.nf`, `environment.yml`, `.conda-lock/`, helper scripts
+— and none of that carries a `declares:` line. Everything under a `module/` is upstream's, is
+covered by the layer digest, and is never hand-edited.
+
 **`rules/` is separate** because a rule choosing STAR over HISAT2 is about neither of them.
 Filing it under `star/` would be a lie about what it decides, and this registry's whole claim is
 that a decision states its own reason.
 
-**The `.contract.yml` / `.type.yml` / `.rule.yml` suffix is for people.** The loader reads
-`declares:` and ignores the filename. Drop the suffix if you dislike it; nothing breaks.
+**The filename is for people.** The loader reads `declares:` and ignores it. Rename anything
+you dislike; nothing breaks — except `module/`, which is read by directory (above).
+
+## Vendoring a tool
+
+`module/` is written by `comeni-vendor`, never by hand:
+
+```bash
+comeni-vendor add nf-core:star/align \
+  --sha 6d46786420b4d7bc88eba026eb389c0c5535d120 \
+  --licence MIT --registry .
+
+comeni-vendor check --registry .              # offline: has anything been hand-edited?
+comeni-vendor check --registry . --upstream   # online: does it still match the pin?
+```
+
+It pins a **commit**, never a branch: a branch moves, so a check against it answers *does this
+match whatever upstream looks like today*, which is a different question from *is this still the
+code we reviewed*. `excluded:` records what was deliberately not copied — nf-core ships a
+`tests/` directory we do not take — so a drift check compares upstream minus what we said we
+would skip, rather than reporting every module as different forever.
+
+A module declaring `upstream: null` is a laboratory's own process, written here rather than
+copied. `check` reports it `unpinned` rather than `ok`, because there is nothing to compare it
+against and reporting a pass would claim a check that never ran.

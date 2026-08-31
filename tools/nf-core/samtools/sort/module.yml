@@ -1,0 +1,10 @@
+declares: module
+id: nf-core/samtools/sort
+licence: MIT
+upstream:
+  repo: https://github.com/nf-core/modules.git
+  sha: 9339809fcb90af8a8b7051e6cd914894d5c52002
+  path: modules/nf-core/samtools/sort
+excluded:
+- tests
+digest: sha256:898826f116215ceeb9a14fd21b56452b3b5027d4e1e724691aefc26380e9e244

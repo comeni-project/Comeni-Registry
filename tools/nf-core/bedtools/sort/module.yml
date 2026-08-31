@@ -1,0 +1,10 @@
+declares: module
+id: nf-core/bedtools/sort
+licence: MIT
+upstream:
+  repo: https://github.com/nf-core/modules.git
+  sha: 6d46786420b4d7bc88eba026eb389c0c5535d120
+  path: modules/nf-core/bedtools/sort
+excluded:
+- tests
+digest: sha256:e803bbec4c48768e43b9ea991fdd6371fbe62c01fc8c77f96a5f510d46929a79

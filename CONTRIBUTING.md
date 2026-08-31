@@ -53,11 +53,21 @@ generated page is the entire argument for committing it.
 contract naming an undeclared state fails), rule validation against the parameters contracts
 actually declare, and role coverage. Plus `docs/tools/` matching the data.
 
-**Not checked, and it cannot be here:** whether a contract agrees with its nf-core module.
-`MD0104`, `MD0105` and container drift compare a contract against a vendored `main.nf`, and this
-repository has no `vendor/` — that copy is exactly what the split removed. **A contract naming a
-process no module defines will merge here** and be caught in the Comeni-Labs pull request that
-bumps the submodule pointer. Read the module before you write the contract.
+**Also checked, and it was not before Plan 5A:** whether a contract agrees with its module.
+`MD0104`, `MD0105` and container drift compare a contract against a `main.nf`, and that file now
+lives in this repository — under `tools/<org>/<tool>/module/`, beside the contract that is a
+binding for it.
+
+That is the whole point of the move. The two used to be in different repositories on different
+release cadences, so **a contract naming a process no module defines would merge here** and be
+caught, if at all, in the Comeni-Labs pull request that bumped the submodule pointer. The check
+that exists to catch a contract drifting from its module was comparing two things nothing kept
+in step.
+
+**`comeni-vendor check` also runs**, so a hand-edited `module/` fails CI. That directory is a
+verbatim copy of somebody else's work and is replaced wholesale by `comeni-vendor add`; anything
+you write into it is lost on the next re-vendor and is a false statement about upstream until
+then.
 
 ## Versions and tags
 
@@ -65,7 +75,26 @@ This layer versions independently of the engine and is tagged `vX.Y.Z`. A `pipel
 layer by content digest, so **moving a file moves the digest** — a rename is a real change to
 every artifact built against it, not a tidy-up.
 
+## Threat model — read this before adding a `--registry`
+
+**`--registry X` used to mean *parse this person's YAML*. It now means *execute this person's
+Groovy*.** A layer carries `main.nf`, and Nextflow runs it.
+
+That is not a reason to reverse the decision — it is exactly nf-core's property, and a pipeline
+is code. What it changes is that **signed tags stop being a nicety**. `docs/design/federation.md`
+§3.4 already specifies tag signature plus a content digest, and that verification is now the only
+thing standing between a third-party overlay and arbitrary execution on your cluster. It is a
+prerequisite for publishing an overlay, not a later refinement.
+
+**No sandbox is invented, and none is claimed.** Nextflow runs containers; the trust boundary is
+the container runtime. A half-measure that looked like isolation would be worse than a sentence
+that tells the truth.
+
 ## Licence
 
-Registry data is **CC-BY-4.0** (`LICENSE`). Contracts and rules cite papers, and attribution is
-the currency of the field.
+The **declarations** are **CC-BY-4.0** (`LICENSE`). Contracts and rules cite papers, and
+attribution is the currency of the field.
+
+The **tool source** under `tools/**/module/` is not ours. Each `module.yml` names the SPDX
+identifier its code arrives under and `LICENSES/<identifier>.txt` carries the text — one file per
+licence, the REUSE convention, never one notice per module.
