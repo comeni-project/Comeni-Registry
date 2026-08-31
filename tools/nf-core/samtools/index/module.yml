@@ -1,0 +1,10 @@
+declares: module
+id: nf-core/samtools/index
+licence: MIT
+upstream:
+  repo: https://github.com/nf-core/modules.git
+  sha: 9339809fcb90af8a8b7051e6cd914894d5c52002
+  path: modules/nf-core/samtools/index
+excluded:
+- tests
+digest: sha256:73107c1155d7a1a68f815cdf22fe5cb83e9d0f45c69d9c7fc1a4dad1ace0d645

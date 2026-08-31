@@ -1,9 +1,15 @@
-Registry data in this repository -- contracts/, rules/, vocabularies/, and
-published pipelines -- is licensed under Creative Commons Attribution 4.0
-International (CC-BY-4.0), whose full text follows.
+The DECLARATIONS in this repository -- contracts, rules, vocabularies, roles,
+measurements and published pipelines -- are licensed under Creative Commons
+Attribution 4.0 International (CC-BY-4.0), whose full text follows.
 
-Source code is licensed separately under Apache-2.0; see LICENSE.
-Vendored nf-core modules under modules/ retain their own licences and notices.
+The TOOL SOURCE under tools/**/module/ is not ours and is not covered by that
+licence. Each of those directories is a verbatim copy of somebody else's work,
+and the module.yml beside it names the SPDX identifier it arrives under. The
+text of each such licence is in LICENSES/<identifier>.txt -- one file per
+licence, which is the REUSE convention, and never one notice per module.
+
+Mendel's own source code is licensed separately under Apache-2.0 and lives in
+github.com/comeni-project/Comeni-Labs.
 
 --------------------------------------------------------------------------
 

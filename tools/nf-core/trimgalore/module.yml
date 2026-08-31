@@ -1,0 +1,10 @@
+declares: module
+id: nf-core/trimgalore
+licence: MIT
+upstream:
+  repo: https://github.com/nf-core/modules.git
+  sha: 2a30bfb6a1b4667692d734e33e000a3bd1d74a0d
+  path: modules/nf-core/trimgalore
+excluded:
+- tests
+digest: sha256:3828bcd88989e1f3e91f3170ff3476c151e731628773dd406c98d9b086d23424
