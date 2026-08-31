@@ -1,0 +1,20 @@
+# Who has to look, and at what.
+#
+# The split is the point: a **contract** is a hand-written binding and the failure mode is
+# that it says something untrue about a module, so it gets a person. A **vendored module** is
+# upstream's code, is never hand-edited, and is held by `comeni-vendor check` in CI rather
+# than by a reader — asking a person to review 200 lines of somebody else's Groovy teaches
+# them to approve without reading, which is worse than not asking.
+
+*                       @comeni-project/registry-reviewers
+
+# The declarations. These are the reviewable half.
+/types/                 @comeni-project/registry-reviewers
+/measurements/          @comeni-project/registry-reviewers
+/roles/                 @comeni-project/registry-reviewers
+/rules/                 @comeni-project/registry-reviewers
+
+# Licensing is not a data question. A new SPDX identifier means the layer now redistributes
+# code under terms nobody has read.
+/LICENSES/              @comeni-project/registry-reviewers
+/LICENSE                @comeni-project/registry-reviewers

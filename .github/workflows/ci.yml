@@ -22,7 +22,7 @@ env:
   #
   # Bumping this is a deliberate commit in *this* repository, and `docs/tools/` regenerates in
   # the same diff — which is the whole reason those pages are committed rather than published.
-  ENGINE_REF: 779c8243e803411514134bc7e39177ecd178cd7e
+  ENGINE_REF: 82d5001326c790eba0bfa8c5e4fc479e1b254172
 
 jobs:
   check:
@@ -46,6 +46,18 @@ jobs:
 
       - name: The committed pages match the data
         run: mendel docs --registry . --out docs/tools --check
+
+      # **This layer holds itself to a layout; the loader does not.** Invariant 11 says a file
+      # declares its own kind, so `mendel build` reads a flat folder as happily as this tree —
+      # and a private overlay keeps that freedom entirely. What the curated registry does is
+      # enforce an arrangement in its own CI, which is nixpkgs's `pkgs/by-name` move.
+      #
+      # `registry.yml`'s `layout:` is this check's argument, which is why that field replaced
+      # `kinds:`. That one was "read by nobody" by its own comment and had drifted; a manifest
+      # that is the lint's input cannot, because if it is wrong the lint refuses files that are
+      # correctly placed.
+      - name: The layer is arranged the way it says it is
+        run: mendel lint --registry .
 
       # **This could not run here until the modules moved in**, and its absence is the whole
       # argument for that move: MD0104, MD0105 and container drift compare a contract against

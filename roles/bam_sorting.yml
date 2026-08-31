@@ -1,0 +1,13 @@
+declares: role
+# Order an alignment by coordinate. A state change on `alignment.bam`, not a new type
+# — and the reason `producers_of` matches on superset: 'get me a BAM' must not
+# silently mean 'get me a sorted BAM'.
+#
+# A role is the job a contract does, and the only thing a tier-3 rule may target. Roles are
+# closed (invariant 7): a contract naming one no layer declares fails to load with MD0302.
+#
+# One role per file is this layer's convention and `mendel registry lint` enforces it here.
+# The format permits several — a private overlay may keep them however it likes, because
+# invariant 11 says the layout is the author's business.
+roles:
+  - bam_sorting

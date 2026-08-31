@@ -1,0 +1,17 @@
+# What a reviewer may skip.
+#
+# `module/` is a verbatim copy of somebody else's work, fetched by `comeni-vendor add` and
+# replaced wholesale on the next one. Nobody reviews it, `comeni-vendor check` is what holds
+# it, and a 200-line `main.nf` in a diff drowns the three lines of contract that are the
+# actual change. `linguist-generated` collapses it on GitHub and keeps it out of language
+# statistics.
+#
+# **It is still in the layer digest and still in every review's blast radius.** Collapsing a
+# diff is a claim about attention, not about trust.
+tools/**/module/** linguist-generated=true
+
+# One page per tool, written by `mendel docs` from the contracts. Committed rather than
+# published so a reviewer can see what a contract edit does to the documentation — which is
+# the whole argument for committing it — but the page itself is derived and is never the
+# thing to review.
+docs/tools/** linguist-generated=true
