@@ -13,7 +13,12 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  # Comeni-Labs @ mendel-compiler 0.1.0.
+  # Comeni-Labs @ mendel-compiler 0.1.0, on `main`.
+  #
+  # **Bumped with the `{param}` templates, in the same commit, because the two are one fact.**
+  # This layer declares `requires_format: 2`; an engine that understands 1 refuses it with
+  # MD0020, and an engine that does no substitution at all writes `params.{param}` into Groovy.
+  # Neither is a state this repository should be able to be in for even one commit.
   #
   # Pinned by commit SHA with the version in a trailing comment — the convention Comeni-Labs
   # applies to every Action, adopted here for the same reason: a mutable ref can be repointed
@@ -22,7 +27,7 @@ env:
   #
   # Bumping this is a deliberate commit in *this* repository, and `docs/tools/` regenerates in
   # the same diff — which is the whole reason those pages are committed rather than published.
-  ENGINE_REF: 82d5001326c790eba0bfa8c5e4fc479e1b254172
+  ENGINE_REF: 532ce0bbdde885f815dce10485dd78f017a51329
 
 jobs:
   check:
