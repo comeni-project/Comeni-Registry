@@ -22,7 +22,7 @@ env:
   #
   # Bumping this is a deliberate commit in *this* repository, and `docs/tools/` regenerates in
   # the same diff — which is the whole reason those pages are committed rather than published.
-  ENGINE_REF: fa65dc4977c6d12887e6ebb6348e8e0f89a8ec9a
+  ENGINE_REF: 779c8243e803411514134bc7e39177ecd178cd7e
 
 jobs:
   check:
@@ -35,18 +35,32 @@ jobs:
         run: |
           uv tool install \
             "mendel-compiler @ git+https://github.com/comeni-project/Comeni-Labs@${ENGINE_REF}#subdirectory=packages/mendel-compiler"
+          uv tool install \
+            "comeni-vendor @ git+https://github.com/comeni-project/Comeni-Labs@${ENGINE_REF}#subdirectory=packages/comeni-vendor"
 
       # Loading the layer is the real gate. It runs every MD0001-MD0012 refusal, vocabulary
       # closure (a contract naming an undeclared state fails), rule validation against the
       # parameters contracts actually declare, and role coverage.
-      #
-      # NOT checked here, and it cannot be: conformance against module source — MD0104,
-      # MD0105 and container drift — compares a contract against a vendored main.nf, and this
-      # repository has no vendor/ and should not. That copy is what Comeni-Labs issue #46
-      # removed. A contract naming a process no module defines will merge here and be caught
-      # in the Comeni-Labs pull request that bumps the submodule pointer.
       - name: The layer loads
         run: mendel docs --registry . --out "$(mktemp -d)"
 
       - name: The committed pages match the data
         run: mendel docs --registry . --out docs/tools --check
+
+      # **This could not run here until the modules moved in**, and its absence is the whole
+      # argument for that move: MD0104, MD0105 and container drift compare a contract against
+      # a main.nf, and that file used to live in another repository on another release cadence.
+      # A contract naming a process no module defines would merge here and be caught, if at
+      # all, in the Comeni-Labs pull request that bumped the submodule pointer.
+      - name: Every contract agrees with its module
+        run: mendel conformance --registry .
+
+      # `module/` is a verbatim copy of somebody else's work and is replaced wholesale by
+      # `comeni-vendor add`. This is what makes "do not hand-edit this" enforceable rather than
+      # a comment somebody reads after they have already edited it.
+      #
+      # Offline: it compares each directory against the digest its own module.yml records,
+      # which is the question about a hand-edit. Whether upstream has *moved* is `--upstream`,
+      # needs the network, and is a different question — Comeni-Labs issue #64.
+      - name: No module has been hand-edited
+        run: comeni-vendor check --registry .
