@@ -3,7 +3,10 @@ id: nf-core/multiqc@1.35
 roles: [qc_aggregation]
 nf_process: MULTIQC
 nf_include: modules/nf-core/multiqc/main
-consumes: [{name: reports, type_id: qc.report, state_required: []}]
+# `cardinality: "*"` — MULTIQC takes every sample's report in ONE invocation. Without it the
+# emitted workflow says `MULTIQC(ch_qc_report)` and runs once per sample, producing N reports
+# where the entire point of the tool is to produce one.
+consumes: [{name: reports, type_id: qc.report, state_required: [], cardinality: "*"}]
 produces: [{name: report, type_id: qc.report, state: [aggregated]}]
 params: []
 priority: 0
