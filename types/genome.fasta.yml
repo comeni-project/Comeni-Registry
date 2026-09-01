@@ -6,6 +6,10 @@ id: genome.fasta
 # `test_data` is pinned to a commit, not a branch. A branch moves; a pinned
 # dataset is the only kind you can compare a result against next year.
 states: []
+# One for the whole run, not one per sample — so it must emit as a VALUE channel. A
+# process with several queue inputs runs as many times as the shortest, and a queue of
+# one reference capped a 24-sample run at one invocation, silently.
+scope: run
 # **`{param}` is substituted at materialisation and is the ONLY substitution.** Not a
 # template language — one placeholder, matched as the literal seven characters, the same
 # argument as Plan 1.15's `transform`. `{` is legal Groovy and appears in these expressions
