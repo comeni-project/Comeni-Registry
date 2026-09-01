@@ -1,3 +1,7 @@
 declares: vocabulary
 id: genome.index.star
 states: []
+# One for the whole run, not one per sample — so it must emit as a VALUE channel. A
+# process with several queue inputs runs as many times as the shortest, and a queue of
+# one reference capped a 24-sample run at one invocation, silently.
+scope: run
