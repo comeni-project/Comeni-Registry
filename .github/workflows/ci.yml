@@ -22,7 +22,7 @@ env:
   #
   # Bumping this is a deliberate commit in *this* repository, and `docs/tools/` regenerates in
   # the same diff — which is the whole reason those pages are committed rather than published.
-  ENGINE_REF: 82d5001326c790eba0bfa8c5e4fc479e1b254172
+  ENGINE_REF: 52e3a2934f97a956f3df17055111d327af8f0d07
 
 jobs:
   check:

@@ -10,6 +10,11 @@
 # kind, so a layer may be one flat folder. What the curated registry does is hold itself to a
 # layout its own CI enforces — nixpkgs's `pkgs/by-name` move — and a private overlay declares no
 # `layout:` and is unenforced.
+# **The floor, and it is what makes a template safe to ship.** An engine that predates
+# Plan 5B does no substitution on `entry_channel`, so it would write the literal string
+# `params.{param}` into Groovy — a broken pipeline from a build that reported success. It
+# cannot detect that; it can only be told, and this is the telling. MD0020.
+requires: 2
 name: comeni-registry-examples
 version: 0.1.0
 licence: CC-BY-4.0
