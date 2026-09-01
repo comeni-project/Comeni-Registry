@@ -1,6 +1,11 @@
 declares: vocabulary
 id: fastq.reads
 states: [trimmed, deduplicated, subsampled]
+# Two columns in a samplesheet — nf-core's `fastq_1`/`fastq_2` convention, with an empty second
+# column meaning single-end. **Not derivable**: nothing about the type id or its states says a
+# FASTQ arrives in pairs, and the entry channel says it only by using `fromFilePairs`, which is
+# a fact about the glob form rather than about the type.
+sample_columns: 2
 # Two forms, because a local run globs and a remote one cannot: Nextflow refuses a glob
 # pattern over https, so `fromFilePairs` works for `/data/*_R{1,2}.fastq.gz` and fails
 # for a URL. A list is taken as an explicit set of mates. The branch lives here rather
