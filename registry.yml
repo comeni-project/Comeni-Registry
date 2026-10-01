@@ -48,6 +48,8 @@ layout:
   measurement: [measurements/]
   # The jobs a contract can do. One file each, named for the role.
   role: [roles/]
+  # The first level of the type choice: what kinds of data exist. One file each.
+  family: [families/]
   # Decisions *between* tools, belonging to neither. Filing a rule that chooses STAR over
   # HISAT2 under `star/` would be a lie about what it decides.
   rule: [rules/]

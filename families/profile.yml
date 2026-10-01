@@ -1,0 +1,10 @@
+declares: family
+# A family is the first level of the type choice (comeni-labs #194): a model reading what
+# somebody wants is shown the families with their descriptions, picks one or more, and is then
+# shown every type of those families, whole. A type's family is the part of its id before the
+# first dot, and a type whose family no layer declares fails to load with MD0316.
+#
+# The description is the whole of what a model reads to choose, so it says what the family
+# holds in a researcher's words, never how a tool makes it.
+id: profile
+description: A record of what was measured about the data
