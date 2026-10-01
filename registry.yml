@@ -36,20 +36,28 @@ description: >-
 
 # Where each kind lives. A file whose `declares:` is not under one of its directories is
 # misfiled, and `mendel registry lint` says so.
+#
+# Five things at the top: tools, profilers, inspectors, vocabulary and rules. **Declaring `tool`
+# here is what turns on the one-folder-per-tool checks** (MD0021–MD0023); a layer that does not
+# declare it lints as before.
 layout:
-  # Everything about one tool, together — its binding, its source, and the types only its
-  # own subtools touch. A thing belongs at the shallowest level that owns it.
-  contract: [tools/]
+  # Everything about one tool, together: what it is (tool.yml), its page, its own types, and one
+  # folder per subtool. The path is the id (MD0021): `nf-core/samtools/sort` is in
+  # tools/nf-core/samtools/sort/.
+  tool: [tools/]
+  # A profiler is a use of a tool to measure the data, run in the lab's pipeline; its contract
+  # lives in profilers/<its id>/.
+  contract: [tools/, profilers/]
   module: [tools/]
-  # A type many tools touch is shared and lives at the root; a type only one tool's modules
-  # touch lives with that tool, and its id must be namespaced by the tool's name.
-  vocabulary: [types/, tools/]
-  # Facts about data, true regardless of which tool measures them.
-  measurement: [measurements/]
+  # A type many tools touch is shared and lives in the vocabulary; a type only one tool's
+  # modules touch lives in that tool's types/ (MD0023), namespaced by the tool's name (MD0017).
+  vocabulary: [vocabulary/types/, tools/]
+  # Facts about data, true regardless of which tool or inspector measures them.
+  measurement: [vocabulary/measurements/]
   # The jobs a contract can do. One file each, named for the role.
-  role: [roles/]
+  role: [vocabulary/roles/]
   # The first level of the type choice: what kinds of data exist. One file each.
-  family: [families/]
+  family: [vocabulary/families/]
   # Decisions *between* tools, belonging to neither. Filing a rule that chooses STAR over
   # HISAT2 under `star/` would be a lie about what it decides.
   rule: [rules/]

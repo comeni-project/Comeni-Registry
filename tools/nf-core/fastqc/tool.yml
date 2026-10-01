@@ -1,0 +1,7 @@
+declares: tool
+id: nf-core/fastqc
+name: FastQC
+description: >-
+  A quality report for sequencing reads: the distribution of quality scores, the base content at
+  each position, and other general metrics, so problems with a run show before alignment.
+homepage: https://www.bioinformatics.babraham.ac.uk/projects/fastqc/

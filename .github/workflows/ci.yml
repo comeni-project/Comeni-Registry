@@ -25,9 +25,9 @@ env:
   # by whoever controls the other end. There are no engine release tags yet; when one is cut
   # for its own reasons this becomes a tag, which is a one-line change.
   #
-  # Bumping this is a deliberate commit in *this* repository, and `docs/tools/` regenerates in
-  # the same diff — which is the whole reason those pages are committed rather than published.
-  ENGINE_REF: 9f582027d08571558585d3b5eb5e9d2f053618a2
+  # Bumping this is a deliberate commit in *this* repository, and each tool's README regenerates
+  # in the same diff — which is the whole reason those pages are committed rather than published.
+  ENGINE_REF: 5fa94d9c04f5ba52a8ce60d45f0fe527e904a3b5
 
 jobs:
   check:
@@ -49,8 +49,8 @@ jobs:
       - name: The layer loads
         run: mendel docs --registry . --out "$(mktemp -d)"
 
-      - name: The committed pages match the data
-        run: mendel docs --registry . --out docs/tools --check
+      - name: Each tool's page matches the data
+        run: mendel docs --registry . --in-place --check
 
       # **This layer holds itself to a layout; the loader does not.** Invariant 11 says a file
       # declares its own kind, so `mendel build` reads a flat folder as happily as this tree —

@@ -21,25 +21,30 @@ The convention this layer uses, and a good default to copy:
 
 | | |
 |---|---|
-| `tools/<namespace>/<tool>/` | a tool's contracts, and any type only that tool produces |
-| `types/` | types more than one tool touches |
-| `measurements/` | measurements — `declares: measurement` **and** an `id:` |
+| `tools/<namespace>/<tool>/` | what the tool is (`tool.yml`), its page, and one folder per subtool |
+| `tools/<namespace>/<tool>/types/` | a type only that tool produces |
+| `profilers/<id>/` | a use of a tool to measure the data |
+| `vocabulary/types/` | types more than one tool touches |
+| `vocabulary/measurements/` | measurements — `declares: measurement` **and** an `id:` |
+| `vocabulary/roles/`, `vocabulary/families/` | the roles a contract may fill; the families of types |
 | `rules/<name>.rule.yml` | tier-3 decision tables |
-| `roles.yml` | the roles a contract may fill |
+
+**The path is the id**: the contract `nf-core/samtools/sort@1.21.0` lives in
+`tools/nf-core/samtools/sort/`. `mendel lint` refuses a file that is not where its id says.
 
 Copy the nearest existing file. If you forget the `declares:` line the loader says `MD0010`; if a
 type or measurement forgets its `id:`, `MD0012`. Run `mendel explain MD0010` for the long form.
 
-## `docs/tools/` is generated — do not edit it
+## Each tool's `README.md` is generated — do not edit it
 
-One page per tool, rendered from the files above. CI fails if a page disagrees with the data, so
+One page per tool, written into that tool's own folder, rendered from the files above. CI fails if a page disagrees with the data, so
 a hand edit is refused rather than silently overwritten.
 
 Regenerating needs the engine installed:
 
 ```bash
 uv tool install "mendel-compiler @ git+https://github.com/comeni-project/Comeni-Labs@main#subdirectory=packages/mendel-compiler"
-mendel docs --registry . --out docs/tools
+mendel docs --registry . --in-place
 ```
 
 **Stated plainly: authoring registry data needs no Python, but regenerating a page does.** CI
@@ -51,7 +56,7 @@ generated page is the entire argument for committing it.
 
 **Checked:** the layer loads. That is every `MD0001`–`MD0012` refusal, closed vocabularies (a
 contract naming an undeclared state fails), rule validation against the parameters contracts
-actually declare, and role coverage. Plus `docs/tools/` matching the data.
+actually declare, and role coverage. Plus every tool's page matching the data.
 
 **Also checked, and it was not before Plan 5A:** whether a contract agrees with its module.
 `MD0104`, `MD0105` and container drift compare a contract against a `main.nf`, and that file now

@@ -1,0 +1,7 @@
+declares: tool
+id: nf-core/bedtools
+name: bedtools
+description: >-
+  A set of tools for genome arithmetic: merging, counting and comparing genomic intervals across
+  BED, GFF and similar files. Here it sorts a feature file by chromosome and position.
+homepage: https://bedtools.readthedocs.io

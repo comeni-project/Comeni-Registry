@@ -39,7 +39,7 @@ jobs:
         run: mendel docs --registry . --out "$(mktemp -d)"
 
       - name: The pages the engine would generate today
-        run: mendel docs --registry . --out docs/tools --check
+        run: mendel docs --registry . --in-place --check
 
       - name: Report incompatibility
         if: failure()

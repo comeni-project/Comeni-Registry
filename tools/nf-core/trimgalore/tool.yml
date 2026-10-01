@@ -1,0 +1,7 @@
+declares: tool
+id: nf-core/trimgalore
+name: Trim Galore
+description: >-
+  Trims adapters and low-quality bases from FASTQ reads, wrapping Cutadapt and FastQC, with extra
+  handling for MspI-digested RRBS libraries.
+homepage: https://www.bioinformatics.babraham.ac.uk/projects/trim_galore/

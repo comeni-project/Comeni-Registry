@@ -14,4 +14,5 @@ tools/**/module/** linguist-generated=true
 # published so a reviewer can see what a contract edit does to the documentation — which is
 # the whole argument for committing it — but the page itself is derived and is never the
 # thing to review.
-docs/tools/** linguist-generated=true
+tools/*/*/README.md linguist-generated=true
+profilers/*/*/README.md linguist-generated=true
