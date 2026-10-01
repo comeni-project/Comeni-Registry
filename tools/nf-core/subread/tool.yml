@@ -1,0 +1,8 @@
+declares: tool
+id: nf-core/subread
+name: Subread (featureCounts)
+description: >-
+  featureCounts counts the mapped reads that fall on genomic features such as genes and exons,
+  turning RNA-seq or DNA-seq alignments into a table of counts per feature.
+homepage: http://bioinf.wehi.edu.au/featureCounts/
+cite: "doi:10.1093/bioinformatics/btt656"

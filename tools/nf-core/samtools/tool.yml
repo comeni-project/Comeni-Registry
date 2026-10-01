@@ -1,0 +1,8 @@
+declares: tool
+id: nf-core/samtools
+name: SAMtools
+description: >-
+  Utilities for working with read alignments in SAM, BAM and CRAM. Here it sorts and indexes the
+  alignments an aligner produces, and indexes the reference genome.
+homepage: http://www.htslib.org/
+cite: "doi:10.1093/bioinformatics/btp352"

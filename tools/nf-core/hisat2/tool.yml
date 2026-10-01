@@ -1,0 +1,8 @@
+declares: tool
+id: nf-core/hisat2
+name: HISAT2
+description: >-
+  A fast and sensitive aligner that maps sequencing reads, DNA or RNA, to a reference genome.
+  Here it builds the genome index and aligns RNA-seq reads to it.
+homepage: https://daehwankimlab.github.io/hisat2/
+cite: "doi:10.1038/s41587-019-0201-4"

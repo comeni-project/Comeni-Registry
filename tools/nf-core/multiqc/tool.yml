@@ -1,0 +1,7 @@
+declares: tool
+id: nf-core/multiqc
+name: MultiQC
+description: >-
+  Collects the logs and reports of many analysis tools across many samples into one HTML report,
+  so a whole run can be reviewed in one place.
+homepage: https://multiqc.info/

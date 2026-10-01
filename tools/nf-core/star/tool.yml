@@ -1,0 +1,8 @@
+declares: tool
+id: nf-core/star
+name: STAR
+description: >-
+  An aligner that maps sequencing reads to a large reference genome, such as the human genome.
+  Here it builds the genome index and aligns RNA-seq reads to it.
+homepage: https://github.com/alexdobin/STAR
+cite: "doi:10.1093/bioinformatics/bts635"

@@ -80,25 +80,30 @@ Mendel's own source code is Apache-2.0 and lives in
 reads the directory, so **the layout is free**: Mendel will load this layer however you arrange
 it, including as one flat folder.
 
-What follows is therefore a *convention*, not a rule. Nothing enforces it. It exists because a
-registry with no convention is one where every contributor invents their own.
+What follows is this layer's own rule, written in `registry.yml`'s `layout:` and enforced by
+`mendel lint` in CI. A private layer that declares no `layout:` is held to nothing.
 
 > **A file lives with the narrowest thing it is about.**
 
 ```
 registry.yml                       this layer's account of itself
 LICENSES/                          one file per licence the vendored code arrives under
-roles.yml                          the jobs a contract can do
-measurements/                      facts about data, true regardless of tool
-types/                             types many tools touch — fastq.reads, alignment.bam
 tools/nf-core/star/                everything STAR, in one place
-    genome.index.star.yml          shared by the subtools, so it sits at the TOOL level
+    tool.yml                       what STAR is, in words an explanation may quote
+    README.md                      its page, generated from the files beside it
+    types/genome.index.star.yml    shared by the subtools, so it sits at the TOOL level
     align/
         contract.yml               the binding: ports, states, roles, params
         module.yml                 where module/ came from, and under what terms
         module/                    upstream's tree, verbatim. NEVER hand-edited
     genomegenerate/
         contract.yml  module.yml  module/
+profilers/comeni/profile/fastqc/   a use of a tool to measure the data; the path is the id
+inspectors/                        code that measures an uploaded sample on the server
+vocabulary/
+    types/                         types many tools touch — fastq.reads, alignment.bam
+    measurements/                  facts about data, true regardless of tool
+    roles/  families/              the jobs a contract can do; the kinds of data that exist
 rules/                             decisions *between* tools, belonging to neither
 ```
 

@@ -1,0 +1,7 @@
+declares: tool
+id: nf-core/picard
+name: Picard
+description: >-
+  Command-line tools for working with sequencing data in SAM, BAM, CRAM and VCF. Here it finds
+  and tags duplicate reads in an alignment.
+homepage: https://broadinstitute.github.io/picard/
