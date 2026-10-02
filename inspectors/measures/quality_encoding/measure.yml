@@ -1,9 +1,10 @@
 declares: measure
 id: quality_encoding
-version: 1.0.0
+version: 1.1.0
 measures: quality_encoding
 record: sequence
-# Decided when at least this many reads were seen and one quality character fits only one
-# encoding: below ';' only Phred+33, above 'J' only Phred+64 (spec §5).
+# Decided when at least this many reads were seen and the characters fit only one encoding:
+# below ';' or above 'h', only Phred+33; everything in '@'-'h' with something above 'J', only
+# Phred+64 (spec §5, issue 222).
 decided: {min_records: 100}
 entry: piece/quality_encoding.py
