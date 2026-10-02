@@ -8,8 +8,3 @@ meta_key: single_end
 meta_values:
   - {when: true, then: false}
   - {when: false, then: true}
-assertion_only: true
-assertion_only_because: >-
-  measurable in principle — the presence of an R2 file answers it — and nothing in this stack
-  produces `measurement.paired`, because the profiling spine reports read length and nothing
-  else. Wiring it is a `comeni/profile-*` contract away rather than a research question.
