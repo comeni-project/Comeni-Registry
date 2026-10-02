@@ -61,7 +61,8 @@ def main() -> None:
     write("names_disagree", "a_R1.fq", "".join(record(f"r{n}", 50) for n in range(200)))
     write("names_disagree", "a_R2.fq", "".join(record(f"x{n}", 50) for n in range(200)))
 
-    write("trimmed", "t.fq.gz", "".join(record(f"r{n}", rng.randint(100, 151)) for n in range(1500)))
+    trimmed = "".join(record(f"r{n}", rng.randint(100, 151)) for n in range(1500))
+    write("trimmed", "t.fq.gz", trimmed)
     write("few", "f.fq", "".join(record(f"r{n}", 150) for n in range(12)))
     write("phred64", "old.fq", "".join(record(f"r{n}", 50, 64, 104) for n in range(200)))
     write("ambiguous_quality", "q.fq", "".join(record(f"r{n}", 50, 64, 73) for n in range(200)))

@@ -1,0 +1,12 @@
+declares: measurement
+id: quality_encoding
+kind: enum
+values: [phred33, phred64]
+description: "How the reads' quality scores are written: Phred+33 (modern) or Phred+64 (old Illumina)"
+cite: "Cock et al. 2009, doi:10.1093/nar/gkp1137"
+describes: fastq.reads
+assertion_only: true
+assertion_only_because: >-
+  the quality_encoding inspector measures it from an uploaded sample, and until facts carry the
+  piece that measured them (14.7.6.3) the vocabulary counts only contracts as producers. That
+  step lifts this flag.
