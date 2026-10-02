@@ -34,3 +34,16 @@ def test_the_name_stops_at_the_first_space():
 
 def test_the_pair_suffix_is_kept_for_the_measure_to_judge():
     assert _records(FIX / "interleaved/s.fq")[0].name == "r0/1"
+
+
+def test_a_long_read_cut_by_the_window_is_still_confirmed():
+    """Review of #134: an ONT or PacBio read of 10 kb does not fit four lines in 4 KiB."""
+    record = b"@long\n" + b"A" * 10_000 + b"\n+\n" + b"I" * 10_000 + b"\n"
+    assert fastq.confirms(record[:4096])
+    assert fastq.confirms(record[:10_020])
+
+
+def test_a_window_that_is_not_fastq_is_still_refused():
+    assert not fastq.confirms(b"@HD\tVN:1.6\n@SQ\tSN:chr1\tLN:100\n")
+    assert not fastq.confirms(b"@x\nACGT\nACGT\nIIII\n")
+    assert not fastq.confirms(b"@x\nACGT\n+\nIIIIIIII\n")
