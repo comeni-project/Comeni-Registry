@@ -83,6 +83,15 @@ def main() -> None:
     (HERE / "empty").mkdir()
     (HERE / "empty" / "e.fq").write_bytes(b"")
 
+    # Issue 224, added last so the cases above keep their bytes. Record 101 is whole and wrong,
+    # with records after it: the facts say where reading stopped.
+    before = "".join(record(f"r{n}", 50) for n in range(100))
+    after = "".join(record(f"r{n}", 50) for n in range(101, 200))
+    write("malformed", "m.fq", before + f"@r100\n{seq(50)}\n+\n{qual(20)}\n" + after)
+    # A name ends at a tab as at a space.
+    write("pair_tab", "s_1.fq", "".join(record(f"r{n}/1\tBC:1", 50) for n in range(200)))
+    write("pair_tab", "s_2.fq", "".join(record(f"r{n}/2\tBC:1", 50) for n in range(200)))
+
 
 if __name__ == "__main__":
     main()

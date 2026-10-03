@@ -47,3 +47,39 @@ def test_a_window_that_is_not_fastq_is_still_refused():
     assert not fastq.confirms(b"@HD\tVN:1.6\n@SQ\tSN:chr1\tLN:100\n")
     assert not fastq.confirms(b"@x\nACGT\nACGT\nIIII\n")
     assert not fastq.confirms(b"@x\nACGT\n+\nIIIIIIII\n")
+
+
+def _read(data: bytes):
+    return fastq.records(io.BufferedReader(io.BytesIO(data)))
+
+
+def test_a_malformed_record_mid_head_is_said_not_swallowed():
+    """Issue 224: a whole record that is wrong, with bytes after it, is not a cut head."""
+    from comeni_inspect.records import Malformed
+
+    good = b"@r1\nACGT\n+\nIIII\n@r2\nACGT\n+\nIIII\n"
+    bad = b"@r3\nACGT\n+\nII\n"
+    got = []
+    try:
+        for record in _read(good + bad + good):
+            got.append(record.name)
+    except Malformed as malformed:
+        assert str(malformed) == "record 3: its quality is not its sequence's length"
+    else:
+        raise AssertionError("a malformed record ended the stream quietly")
+    assert got == ["r1", "r2"]
+
+
+def test_a_record_without_its_at_sign_is_malformed():
+    from comeni_inspect.records import Malformed
+
+    try:
+        list(_read(b"@r1\nACGT\n+\nIIII\nr2\nACGT\n+\nIIII\n"))
+    except Malformed as malformed:
+        assert str(malformed) == "record 2: it does not start with @"
+    else:
+        raise AssertionError("a record without @ ended the stream quietly")
+
+
+def test_the_name_stops_at_a_tab_too():
+    assert [r.name for r in _read(b"@r0/1\tBC:1\nACGT\n+\nIIII\n")] == ["r0/1"]

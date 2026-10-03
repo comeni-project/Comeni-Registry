@@ -10,6 +10,7 @@ from comeni_inspect.outcome import Undetermined, Value
 
 _MATE = re.compile(r"/[12]$")
 _R1_FILE = re.compile(r"(_R?1)(_\d+)?\.")
+_R2_FILE = re.compile(r"(_R?2)(_\d+)?\.")
 
 
 def _stem(name: str) -> str:
@@ -48,6 +49,10 @@ class Accumulator:
             return Value(value=True, evidence=evidence)
         if len(self.files) == 1 and share <= 1 - self.agreement:
             return Value(value=False, evidence=evidence)
-        if len(self.files) == 2 and _R1_FILE.search(self.files[0]):
+        if (
+            len(self.files) == 2
+            and _R1_FILE.search(self.files[0])
+            and _R2_FILE.search(self.files[1])
+        ):
             return Undetermined(reason="names say R1/R2, read names don't match", evidence=evidence)
         return Undetermined(reason="read names don't match", evidence=evidence)

@@ -1,6 +1,6 @@
 declares: measure
 id: paired
-version: 1.0.0
+version: 1.1.0
 measures: paired
 record: sequence
 # Decided from read names only: at least this many pairs of reads compared, and at least this
