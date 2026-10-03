@@ -1,0 +1,9 @@
+declares: format
+id: fastq
+version: 1.1.0
+reads: [fastq.reads]
+extensions: [.fastq, .fq]
+record: sequence
+runs: server
+files: "1..2"
+entry: piece/fastq.py

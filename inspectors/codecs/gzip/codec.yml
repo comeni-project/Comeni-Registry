@@ -1,0 +1,6 @@
+declares: codec
+id: gzip
+version: 1.0.0
+extensions: [.gz]
+magic: ["1f8b"]
+entry: piece/gzip_codec.py

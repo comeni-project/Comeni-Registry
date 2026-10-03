@@ -1,0 +1,9 @@
+declares: measure
+id: read_length
+version: 1.0.0
+measures: read_length
+record: sequence
+# Decided when at least this many reads were seen, and the most common length holds at least
+# this share of them. Below either, the person is asked (spec §5).
+decided: {min_records: 1000, modal_share: 0.8}
+entry: piece/read_length.py

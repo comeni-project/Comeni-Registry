@@ -58,6 +58,12 @@ layout:
   role: [vocabulary/roles/]
   # The first level of the type choice: what kinds of data exist. One file each.
   family: [vocabulary/families/]
+  # Inspector pieces: code that measures an uploaded sample on the server, composed at run time
+  # (a codec opens the bytes, a format reads records, a measure folds them into one fact). Each
+  # is a declaration with its code, tests and fixtures beside it in piece/.
+  codec: [inspectors/codecs/]
+  format: [inspectors/formats/]
+  measure: [inspectors/measures/]
   # Decisions *between* tools, belonging to neither. Filing a rule that chooses STAR over
   # HISAT2 under `star/` would be a lie about what it decides.
   rule: [rules/]

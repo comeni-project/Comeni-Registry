@@ -1,0 +1,7 @@
+declares: measurement
+id: quality_encoding
+kind: enum
+values: [phred33, phred64]
+description: "How the reads' quality scores are written: Phred+33 (modern) or Phred+64 (old Illumina)"
+cite: "Cock et al. 2009, doi:10.1093/nar/gkp1137"
+describes: fastq.reads
