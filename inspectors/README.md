@@ -70,6 +70,12 @@ the types it confirms, `extensions`, `record`, `runs: server`, `entry`) and a mo
 go in `piece/fixtures/<case>/`, one folder per case, written by a `make.py` beside them so they
 can be regenerated and reviewed.
 
+In its tests, **name the format**, or the helper reads FASTQ's fixtures:
+
+```python
+fact = inspect(*request_for("my_case", ["read_length"], format="<id>")).facts["read_length"]
+```
+
 ## The rules every piece keeps
 
 - **It imports only** from the allowlist in Comeni Labs' `tests/guards/test_inspector_pieces.py`:
