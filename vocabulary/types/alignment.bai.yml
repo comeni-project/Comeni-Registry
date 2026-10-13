@@ -1,3 +1,4 @@
 declares: vocabulary
 id: alignment.bai
 states: []
+name: BAM index (BAI)

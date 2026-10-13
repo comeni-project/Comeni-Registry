@@ -19,3 +19,8 @@ scope: run
 # channels of this type had one param and were therefore one hole, whatever the drawing said.
 entry_channel: "Channel.fromPath(params.{param}, checkIfExists: true).map { f -> [ [id: f.baseName], f ] }"
 test_data: "https://raw.githubusercontent.com/nf-core/test-datasets/72a702d346833d5523bc40d032323ea548603b00/reference/genome.fasta"
+name: reference genome (FASTA)
+explain: >-
+  The genome sequence of your organism, which your reads are aligned against. Take it from
+  Ensembl, GENCODE or UCSC, and note the release: your gene annotation must come from the same
+  one.

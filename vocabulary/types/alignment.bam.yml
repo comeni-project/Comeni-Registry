@@ -1,3 +1,4 @@
 declares: vocabulary
 id: alignment.bam
 states: [coordinate_sorted, name_sorted, deduplicated, filtered, indexed]
+name: aligned reads (BAM)
