@@ -14,3 +14,7 @@ scope: run
 # channels of this type had one param and were therefore one hole, whatever the drawing said.
 entry_channel: "Channel.fromPath(params.{param}, checkIfExists: true).map { gtf -> [ [id: gtf.baseName], gtf ] }"
 test_data: "https://raw.githubusercontent.com/nf-core/test-datasets/72a702d346833d5523bc40d032323ea548603b00/reference/genes.gtf"
+name: gene annotation (GTF)
+explain: >-
+  A table of where each gene and its exons lie on the genome. It comes from the same source and
+  release as your reference genome (Ensembl, GENCODE or UCSC), so that the two agree.

@@ -8,3 +8,6 @@ meta_key: single_end
 meta_values:
   - {when: true, then: false}
   - {when: false, then: true}
+explain: >-
+  Whether each fragment was read from both ends, giving two files per sample, or from one end
+  only. Two files named _R1 and _R2, or _1 and _2, mean paired.

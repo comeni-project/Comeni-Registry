@@ -1,3 +1,4 @@
 declares: vocabulary
 id: profile.yml
 states: []
+name: data profile

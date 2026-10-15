@@ -1,3 +1,4 @@
 declares: vocabulary
 id: counts.matrix
 states: [gene_level, transcript_level, normalised]
+name: gene counts matrix

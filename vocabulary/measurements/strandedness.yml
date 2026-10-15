@@ -12,3 +12,6 @@ assertion_only_because: >-
   it is measurable and the tool is not vendored. Until it is, every pipeline that reaches
   featureCounts' `-s` is resting on a claim by whoever wrote the goal — which is why
   `PremiseOrigin` distinguishes `measured` from `asserted` and why issue #2 exists.
+explain: >-
+  Whether your library preparation kept track of which DNA strand each read came from. The kit's
+  name decides it: most current Illumina kits (TruSeq Stranded, for example) are reverse-stranded.
