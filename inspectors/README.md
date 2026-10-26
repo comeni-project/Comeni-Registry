@@ -56,11 +56,16 @@ it, `piece/` with its code, its tests and, for a format, its fixtures.
    uv run pytest tests/registry/test_inspection_conformance.py
    ```
 
-A **new measurement** (step 1) is also a new type, `measurement.<id>`, so when Comeni Labs moves
-to this registry a few derived files move with it: the generated `profile.pyi`
-(`uv run python tools/generate_types.py`), the golden prompts and scaffolds under
-`packages/mendel-forge/tests` (`uv run pytest packages/mendel-forge --regenerate`, and
-`FORGE_GOLDEN=update` for `test_golden.py`), and the test that lists every measurement. `make check` there names each one.
+A **new measurement** (step 1) also derives a `measurement.<id>` type. From the Comeni Labs
+checkout, regenerate the profile type stub and run the ordinary checks:
+
+```bash
+uv run python tools/generate_types.py
+make check
+```
+
+The generated stub is committed with the engine; runtime vocabulary validation remains derived
+from the registry declarations.
 
 ## Add a format
 
