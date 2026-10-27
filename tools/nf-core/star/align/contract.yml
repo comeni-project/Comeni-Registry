@@ -1,5 +1,5 @@
 declares: contract
-id: nf-core/star/align@1.11.0
+id: nf-core/star/align@2.7.11b
 roles: [alignment]
 nf_process: STAR_ALIGN
 nf_include: modules/nf-core/star/align/main

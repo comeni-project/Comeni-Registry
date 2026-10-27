@@ -29,7 +29,7 @@ The convention this layer uses, and a good default to copy:
 | `vocabulary/roles/`, `vocabulary/families/` | the roles a contract may fill; the families of types |
 | `rules/<name>.rule.yml` | tier-3 decision tables |
 
-**The path is the id**: the contract `nf-core/samtools/sort@1.21.0` lives in
+**The path is the id**: the contract `nf-core/samtools/sort@1.24` lives in
 `tools/nf-core/samtools/sort/`. `mendel lint` refuses a file that is not where its id says.
 
 Copy the nearest existing file. If you forget the `declares:` line the loader says `MD0010`; if a

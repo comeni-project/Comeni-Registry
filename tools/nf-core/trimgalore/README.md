@@ -10,7 +10,7 @@ Homepage: https://www.bioinformatics.babraham.ac.uk/projects/trim_galore/
 
 1 contract(s) in this layer stack.
 
-### `nf-core/trimgalore@0.6.10`
+### `nf-core/trimgalore@2.3.0`
 
 - **Process:** `TRIMGALORE`
 - **Include:** `modules/nf-core/trimgalore/main`

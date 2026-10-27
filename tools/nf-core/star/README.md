@@ -12,7 +12,7 @@ Cite: doi:10.1093/bioinformatics/bts635
 
 2 contract(s) in this layer stack.
 
-### `nf-core/star/align@1.11.0`
+### `nf-core/star/align@2.7.11b`
 
 - **Process:** `STAR_ALIGN`
 - **Include:** `modules/nf-core/star/align/main`
@@ -43,7 +43,7 @@ Cite: doi:10.1093/bioinformatics/bts635
 - approved_by: `rafael`
 - approved_at: `2026-08-03`
 
-### `nf-core/star/genomegenerate@1.11.0`
+### `nf-core/star/genomegenerate@2.7.11b`
 
 - **Process:** `STAR_GENOMEGENERATE`
 - **Include:** `modules/nf-core/star/genomegenerate/main`

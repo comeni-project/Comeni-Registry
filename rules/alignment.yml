@@ -18,7 +18,7 @@ decisions:
       # to say HISAT2 was chosen because of the paper describing STAR (audit A79/A107), which
       # was reachable by changing one number in examples/rnaseq-goal.yml.
       - when: {read_length: ">= 70"}
-        then: nf-core/star/align@1.11.0
+        then: nf-core/star/align@2.7.11b
         because: >-
           STAR's seed-and-extend search is built for long reads and is nf-core/rnaseq's
           default aligner; the index cost it pays back over reads this length.

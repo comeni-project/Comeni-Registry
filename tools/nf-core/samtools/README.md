@@ -12,7 +12,7 @@ Cite: doi:10.1093/bioinformatics/btp352
 
 2 contract(s) in this layer stack.
 
-### `nf-core/samtools/index@1.21.0`
+### `nf-core/samtools/index@1.24`
 
 - **Process:** `SAMTOOLS_INDEX`
 - **Include:** `modules/nf-core/samtools/index/main`
@@ -38,7 +38,7 @@ This contract declares no parameters.
 - approved_by: `rafael`
 - approved_at: `2026-08-03`
 
-### `nf-core/samtools/sort@1.21.0`
+### `nf-core/samtools/sort@1.24`
 
 - **Process:** `SAMTOOLS_SORT`
 - **Include:** `modules/nf-core/samtools/sort/main`

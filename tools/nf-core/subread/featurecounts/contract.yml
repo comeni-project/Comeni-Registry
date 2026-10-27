@@ -1,5 +1,5 @@
 declares: contract
-id: nf-core/subread/featurecounts@2.0.6
+id: nf-core/subread/featurecounts@2.1.1
 roles: [quantification]
 nf_process: SUBREAD_FEATURECOUNTS
 nf_include: modules/nf-core/subread/featurecounts/main
