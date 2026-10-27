@@ -12,7 +12,7 @@ Cite: doi:10.1093/bioinformatics/btt656
 
 1 contract(s) in this layer stack.
 
-### `nf-core/subread/featurecounts@2.0.6`
+### `nf-core/subread/featurecounts@2.1.1`
 
 - **Process:** `SUBREAD_FEATURECOUNTS`
 - **Include:** `modules/nf-core/subread/featurecounts/main`

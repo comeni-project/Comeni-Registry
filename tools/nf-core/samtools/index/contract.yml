@@ -1,5 +1,5 @@
 declares: contract
-id: nf-core/samtools/index@1.21.0
+id: nf-core/samtools/index@1.24
 roles: [bam_indexing]
 nf_process: SAMTOOLS_INDEX
 nf_include: modules/nf-core/samtools/index/main
