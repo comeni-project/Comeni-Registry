@@ -49,6 +49,9 @@ layout:
   # lives in profilers/<its id>/.
   contract: [tools/, profilers/]
   module: [tools/]
+  # A tool's tests, beside it in tests/: public test data and what must come out. The forge runs
+  # them before a tool is published.
+  test: [tools/]
   # A type many tools touch is shared and lives in the vocabulary; a type only one tool's
   # modules touch lives in that tool's types/ (MD0023), namespaced by the tool's name (MD0017).
   vocabulary: [vocabulary/types/, tools/]
