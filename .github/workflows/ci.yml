@@ -13,7 +13,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  # Comeni-Labs @ mendel-compiler 0.1.0, on `main`.
+  # Comeni-Labs on `main`: the first engine that reads `declares: test`.
   #
   # **Bumped with the `{param}` templates, in the same commit, because the two are one fact.**
   # This layer declares `requires_format: 2`; an engine that understands 1 refuses it with
@@ -27,7 +27,7 @@ env:
   #
   # Bumping this is a deliberate commit in *this* repository, and each tool's README regenerates
   # in the same diff — which is the whole reason those pages are committed rather than published.
-  ENGINE_REF: 9c42baafad583ad676d269e40f1056b89d54b6a2
+  ENGINE_REF: 9143598893e237c3d734f66efd8a3c8fd33e7e83
 
 jobs:
   check:
