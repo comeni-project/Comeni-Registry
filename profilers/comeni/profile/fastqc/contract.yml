@@ -6,12 +6,12 @@ id: comeni/profile/fastqc@0.12.1
 roles: [profiling]
 nf_process: FASTQC
 nf_include: modules/nf-core/fastqc/main
-consumes: [{name: reads, type_id: fastq.reads, state_required: []}]
+consumes: [{name: reads, type_id: fastq.reads}]
 # The port name is the emit label the compiler reads as `FASTQC.out.<name>`, not a
 # name for the measurement — that is what `type_id` carries. FastQC reports sequence
 # length in `fastqc_data.txt` inside the zip, so the measurement arrives on `zip`.
 produces:
-  - {name: zip, type_id: measurement.read_length, state: []}
+  - {name: zip, type_id: measurement.read_length}
 params: []
 priority: 0
 nf_inputs: [{ports: [reads]}]

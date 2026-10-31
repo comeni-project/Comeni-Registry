@@ -23,7 +23,7 @@ Homepage: https://www.bioinformatics.babraham.ac.uk/projects/fastqc/
 | Direction | Port | Type | States |
 |---|---|---|---|
 | consumes | `reads` | `fastq.reads` | — |
-| produces | `zip` | `qc.report` | — |
+| produces | `zip` | `qc.report` | `reads` |
 
 #### Parameters
 
