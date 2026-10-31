@@ -6,7 +6,6 @@ nf_include: modules/nf-core/star/align/main
 consumes:
   - name: reads
     type_id: fastq.reads
-    state_required: []
     state_required_conventional: [trimmed]
     state_conventional_because: >-
       STAR soft-clips adapter sequence rather than requiring it removed, and
@@ -15,9 +14,9 @@ consumes:
       declaring it structural made a rule that skips trimming produce an unroutable
       pipeline rather than a shorter one.
 
-  - {name: index, type_id: genome.index.star, state_required: []}
-  - {name: gtf, type_id: annotation.gtf, state_required: []}
-produces: [{name: bam, type_id: alignment.bam, state: []}]
+  - {name: index, type_id: genome.index.star}
+  - {name: gtf, type_id: annotation.gtf}
+produces: [{name: bam, type_id: alignment.bam, format: [bam]}]
 params:
   # STAR builds its own read-group line unless `ext.args` already contains the flag:
   #   attrRG = args.contains("--outSAMattrRGline") ? "" : "--outSAMattrRGline 'ID:$prefix' ..."

@@ -3,8 +3,8 @@ id: nf-core/samtools/sort@1.24
 roles: [bam_sorting]
 nf_process: SAMTOOLS_SORT
 nf_include: modules/nf-core/samtools/sort/main
-consumes: [{name: bam, type_id: alignment.bam, state_required: []}]
-produces: [{name: bam, type_id: alignment.bam, state: [coordinate_sorted]}]
+consumes: [{name: bam, type_id: alignment.bam}]
+produces: [{name: bam, type_id: alignment.bam::coordinate_sorted, format: [bam]}]
 params:
   - name: index_format
     default: bai
