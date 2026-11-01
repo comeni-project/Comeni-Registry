@@ -4,7 +4,7 @@ roles: [qc_per_sample]
 nf_process: FASTQC
 nf_include: modules/nf-core/fastqc/main
 consumes: [{name: reads, type_id: fastq.reads}]
-produces: [{name: zip, type_id: qc.report::reads, format: [zip]}]
+produces: [{name: zip, type_id: qc.report, format: [zip]}]
 params: []
 priority: 0
 nf_inputs: [{ports: [reads]}]
