@@ -1,4 +1,4 @@
 declares: vocabulary
 id: qc.report
-states: [aggregated, reads]
+states: [aggregated]
 name: quality-control report
