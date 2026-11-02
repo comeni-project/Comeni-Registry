@@ -3,4 +3,4 @@ id: alignment.bai
 states: []
 name: BAM index (BAI)
 explain: >-
-  An index of a sorted BAM, kept beside it, so a region can be read without scanning the whole file.
+  The index file that sits next to a sorted BAM (.bam.bai). It lets a tool jump straight to one region of the genome.

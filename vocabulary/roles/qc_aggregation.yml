@@ -10,4 +10,5 @@ declares: role
 # invariant 11 says the layout is the author's business.
 roles:
   - id: qc_aggregation
-    explain: Collect every sample's report into one, once for the whole run.
+    explain: >-
+      Gathers the quality reports from every sample into a single report for the whole run, so samples can be compared side by side.

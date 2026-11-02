@@ -3,4 +3,4 @@ id: profile.yml
 states: []
 name: data profile
 explain: >-
-  Measurements of your data, written by a profiling run, that later choices can rest on.
+  The measurements a profiling run took from your data, such as read length, saved so the build can use them.

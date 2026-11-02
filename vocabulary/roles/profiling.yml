@@ -11,4 +11,5 @@ declares: role
 # invariant 11 says the layout is the author's business.
 roles:
   - id: profiling
-    explain: Measure the data, so that later choices can rest on a measured fact.
+    explain: >-
+      Takes a quick look at the data before the full analysis and records measurements such as read length. Rules then use those measurements to choose settings.

@@ -9,4 +9,5 @@ declares: role
 # invariant 11 says the layout is the author's business.
 roles:
   - id: bam_indexing
-    explain: Build the index beside a sorted BAM, so a region can be read without scanning the whole file.
+    explain: >-
+      Builds a .bai index for a coordinate-sorted BAM. Genome viewers and region-based tools need it to jump to one part of the genome.

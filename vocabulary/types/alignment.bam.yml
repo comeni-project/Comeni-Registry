@@ -3,4 +3,4 @@ id: alignment.bam
 states: [coordinate_sorted, name_sorted, deduplicated, filtered, indexed]
 name: aligned reads (BAM)
 explain: >-
-  Reads placed against a reference genome. Its states say how it has been sorted or filtered, and steps can require them.
+  Your reads with their positions on the reference genome, stored in the compressed BAM format. The file can be sorted by position or by read name, filtered, or have duplicates removed.

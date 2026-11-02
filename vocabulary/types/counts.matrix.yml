@@ -3,4 +3,4 @@ id: counts.matrix
 states: [gene_level, transcript_level, normalised]
 name: gene counts matrix
 explain: >-
-  A table of how many reads each gene or transcript received in each sample, ready for statistics.
+  A table with one row per gene or transcript and one column per sample, where each cell is the number of reads counted. This is the usual starting point for differential expression.

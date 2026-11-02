@@ -12,4 +12,5 @@ declares: role
 # invariant 11 says the layout is the author's business.
 roles:
   - id: trimming
-    explain: Remove adapters and low-quality bases from raw reads, before anything aligns them.
+    explain: >-
+      Cuts adapter sequence and low-quality bases from the ends of raw reads before they are aligned.

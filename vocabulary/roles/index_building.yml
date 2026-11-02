@@ -10,4 +10,5 @@ declares: role
 # invariant 11 says the layout is the author's business.
 roles:
   - id: index_building
-    explain: Build the reference index an aligner needs. It runs once, and a lab may already hold one.
+    explain: >-
+      Builds the index an aligner searches, from the reference genome and usually its gene annotation. Each aligner has its own index format, and one index can be reused across runs.

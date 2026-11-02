@@ -3,4 +3,4 @@ id: qc.report
 states: [aggregated]
 name: quality-control report
 explain: >-
-  A quality-control report on one sample or on a whole run. Its states say what it reports on.
+  A quality report on your data. It can cover one sample or, once aggregated, the whole run.
