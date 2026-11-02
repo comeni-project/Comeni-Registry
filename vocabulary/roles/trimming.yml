@@ -11,4 +11,5 @@ declares: role
 # The format permits several — a private overlay may keep them however it likes, because
 # invariant 11 says the layout is the author's business.
 roles:
-  - trimming
+  - id: trimming
+    explain: Remove adapters and low-quality bases from raw reads, before anything aligns them.

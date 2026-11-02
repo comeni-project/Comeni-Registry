@@ -9,4 +9,5 @@ declares: role
 # The format permits several — a private overlay may keep them however it likes, because
 # invariant 11 says the layout is the author's business.
 roles:
-  - qc_aggregation
+  - id: qc_aggregation
+    explain: Collect every sample's report into one, once for the whole run.

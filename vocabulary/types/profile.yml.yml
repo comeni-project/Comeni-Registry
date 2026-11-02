@@ -2,3 +2,5 @@ declares: vocabulary
 id: profile.yml
 states: []
 name: data profile
+explain: >-
+  Measurements of your data, written by a profiling run, that later choices can rest on.

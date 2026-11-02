@@ -2,3 +2,5 @@ declares: vocabulary
 id: alignment.bai
 states: []
 name: BAM index (BAI)
+explain: >-
+  An index of a sorted BAM, kept beside it, so a region can be read without scanning the whole file.

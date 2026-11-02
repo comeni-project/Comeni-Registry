@@ -10,4 +10,5 @@ declares: role
 # The format permits several — a private overlay may keep them however it likes, because
 # invariant 11 says the layout is the author's business.
 roles:
-  - bam_sorting
+  - id: bam_sorting
+    explain: Order an alignment by position on the reference.

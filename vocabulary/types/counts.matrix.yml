@@ -2,3 +2,5 @@ declares: vocabulary
 id: counts.matrix
 states: [gene_level, transcript_level, normalised]
 name: gene counts matrix
+explain: >-
+  A table of how many reads each gene or transcript received in each sample, ready for statistics.

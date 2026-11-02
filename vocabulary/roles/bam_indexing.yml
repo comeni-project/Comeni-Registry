@@ -8,4 +8,5 @@ declares: role
 # The format permits several — a private overlay may keep them however it likes, because
 # invariant 11 says the layout is the author's business.
 roles:
-  - bam_indexing
+  - id: bam_indexing
+    explain: Build the index beside a sorted BAM, so a region can be read without scanning the whole file.

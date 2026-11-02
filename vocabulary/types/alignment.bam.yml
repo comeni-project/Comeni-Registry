@@ -2,3 +2,5 @@ declares: vocabulary
 id: alignment.bam
 states: [coordinate_sorted, name_sorted, deduplicated, filtered, indexed]
 name: aligned reads (BAM)
+explain: >-
+  Reads placed against a reference genome. Its states say how it has been sorted or filtered, and steps can require them.
