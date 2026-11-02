@@ -10,4 +10,6 @@ declares: role
 # The format permits several — a private overlay may keep them however it likes, because
 # invariant 11 says the layout is the author's business.
 roles:
-  - bam_sorting
+  - id: bam_sorting
+    explain: >-
+      Rewrites a BAM file so its reads run in order along each chromosome. Indexing and read counting both expect this order.

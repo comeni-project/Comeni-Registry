@@ -2,3 +2,5 @@ declares: vocabulary
 id: alignment.bam
 states: [coordinate_sorted, name_sorted, deduplicated, filtered, indexed]
 name: aligned reads (BAM)
+explain: >-
+  Your reads with their positions on the reference genome, stored in the compressed BAM format. The file can be sorted by position or by read name, filtered, or have duplicates removed.

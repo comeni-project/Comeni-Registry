@@ -2,3 +2,5 @@ declares: vocabulary
 id: qc.report
 states: [aggregated]
 name: quality-control report
+explain: >-
+  A quality report on your data. It can cover one sample or, once aggregated, the whole run.

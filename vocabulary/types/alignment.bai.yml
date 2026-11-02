@@ -2,3 +2,5 @@ declares: vocabulary
 id: alignment.bai
 states: []
 name: BAM index (BAI)
+explain: >-
+  The index file that sits next to a sorted BAM (.bam.bai). It lets a tool jump straight to one region of the genome.

@@ -10,4 +10,6 @@ declares: role
 # The format permits several — a private overlay may keep them however it likes, because
 # invariant 11 says the layout is the author's business.
 roles:
-  - alignment
+  - id: alignment
+    explain: >-
+      Finds where each sequencing read came from on the reference genome and writes the result as a BAM file.

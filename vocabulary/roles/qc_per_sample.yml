@@ -9,4 +9,6 @@ declares: role
 # The format permits several — a private overlay may keep them however it likes, because
 # invariant 11 says the layout is the author's business.
 roles:
-  - qc_per_sample
+  - id: qc_per_sample
+    explain: >-
+      Checks the quality of one sample and writes a report for it. What it measures depends on the data, such as base quality for reads or contig lengths for an assembly.

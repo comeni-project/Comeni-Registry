@@ -2,3 +2,5 @@ declares: vocabulary
 id: profile.yml
 states: []
 name: data profile
+explain: >-
+  The measurements a profiling run took from your data, such as read length, saved so the build can use them.
