@@ -1,0 +1,1 @@
+CI checks the layer against the engine with tool constraints (Comeni-Labs #460): a contract may declare optional inputs, outputs written only under a condition, and constraints between its inputs and params.
