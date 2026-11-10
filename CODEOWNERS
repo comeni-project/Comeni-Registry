@@ -11,7 +11,7 @@
 # The declarations. These are the reviewable half.
 /vocabulary/            @comeni-project/registry-reviewers
 /profilers/             @comeni-project/registry-reviewers
-/inspectors/            @comeni-project/registry-reviewers
+/measurers/             @comeni-project/registry-reviewers
 /rules/                 @comeni-project/registry-reviewers
 
 # Licensing is not a data question. A new SPDX identifier means the layer now redistributes
