@@ -29,7 +29,7 @@ it, `piece/` with its code, its tests and, for a format, its fixtures.
 1. Make sure the measurement exists in `vocabulary/measurements/` (`declares: measurement`, an
    `id`, a `kind`, a `description` and a `cite`). If you are declaring it now, leave out
    `assertion_only`: your measurer is what measures it.
-2. Create `measures/<id>/measurer.yml`:
+2. Create `measurers/measures/<id>/measurer.yml`:
 
    ```yaml
    declares: measurer
