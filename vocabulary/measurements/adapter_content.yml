@@ -9,6 +9,6 @@ cite: "Andrews 2010, FastQC Adapter Content module"
 describes: fastq.reads
 assertion_only: true
 assertion_only_because: >-
-  FastQC's Adapter Content module reports it and `comeni/profile-fastqc` does not yet emit it
-  as a `measurement.` output. Wiring it is a contract change, not a research question — and
-  R08 in the rule corpus is the rule waiting on it.
+  FastQC's Adapter Content module reports it, and no measurer parses that report yet. Wiring
+  it is a `by: tool` measurer over FastQC's output, not a research question, and R08 in the
+  rule corpus is the rule waiting on it.

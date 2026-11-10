@@ -15,4 +15,3 @@ tools/**/module/** linguist-generated=true
 # the whole argument for committing it — but the page itself is derived and is never the
 # thing to review.
 tools/*/*/README.md linguist-generated=true
-profilers/*/*/README.md linguist-generated=true

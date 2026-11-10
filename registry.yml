@@ -37,7 +37,7 @@ description: >-
 # Where each kind lives. A file whose `declares:` is not under one of its directories is
 # misfiled, and `mendel registry lint` says so.
 #
-# Five things at the top: tools, profilers, measurers, vocabulary and rules. **Declaring `tool`
+# Four things at the top: tools, measurers, vocabulary and rules. **Declaring `tool`
 # here is what turns on the one-folder-per-tool checks** (MD0021–MD0023); a layer that does not
 # declare it lints as before.
 layout:
@@ -45,9 +45,7 @@ layout:
   # folder per subtool. The path is the id (MD0021): `nf-core/samtools/sort` is in
   # tools/nf-core/samtools/sort/.
   tool: [tools/]
-  # A profiler is a use of a tool to measure the data, run in the lab's pipeline; its contract
-  # lives in profilers/<its id>/.
-  contract: [tools/, profilers/]
+  contract: [tools/]
   module: [tools/]
   # A tool's tests, beside it in tests/: public test data and what must come out. The forge runs
   # them before a tool is published.

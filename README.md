@@ -98,7 +98,6 @@ tools/nf-core/star/                everything STAR, in one place
         module/                    upstream's tree, verbatim. NEVER hand-edited
     genomegenerate/
         contract.yml  module.yml  module/
-profilers/comeni/profile/fastqc/   a use of a tool to measure the data; the path is the id
 measurers/                         what measures data: on the server, over an upload's head, and in the pipeline
 vocabulary/
     types/                         types many tools touch — fastq.reads, alignment.bam
