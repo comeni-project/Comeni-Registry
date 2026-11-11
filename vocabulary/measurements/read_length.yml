@@ -4,6 +4,7 @@ kind: integer
 minimum: 1
 unit: bp
 description: "Sequenced read length"
+describes: fastq.reads
 cite: "Dobin et al. 2013, doi:10.1093/bioinformatics/bts635"
 explain: >-
   How many bases each read holds, such as 50, 100 or 150. Your sequencing facility's run report
