@@ -8,9 +8,12 @@ consumes:
   # An existing index makes samtools reuse it; this registry's pipelines never hold one, so the
   # port is left out and the module receives `[]` in its slot (shared slot, #464).
   - {name: fai, type_id: genome.fai, required: false}
-# The module writes a .fai only when it was not handed one.
+# The module writes a .fai only when it was not handed one. Declared as always written: the
+# router cannot yet switch an optional input off to meet `{given.fai: absent}`, and no pipeline
+# here supplies an index. A run that did would leave the genome_length measurement unmatched,
+# and the run stops on the join rather than measuring nothing (MD0611 notes the difference).
 produces:
-  - {name: fai, type_id: genome.fai, format: [fai], produced_when: {given.fai: absent}}
+  - {name: fai, type_id: genome.fai, format: [fai]}
 params:
   - name: get_sizes
     default: false
