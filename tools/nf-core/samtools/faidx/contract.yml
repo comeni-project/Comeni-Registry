@@ -22,7 +22,7 @@ params:
 priority: 0
 # tuple(meta, fasta, fai) | val get_sizes
 nf_inputs:
-  - {ports: [fasta, fai]}
+  - {ports: [fasta, fai], join: broadcast}
   - {param: get_sizes}
 container: community.wave.seqera.io/library/htslib_samtools:1.24--d697cfb9dce007cd
 provenance: {source: nf-core-meta-yml, drafted_by: claude, approved_by: unreviewed, approved_at: ""}
