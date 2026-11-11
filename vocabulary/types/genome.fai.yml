@@ -1,0 +1,6 @@
+declares: vocabulary
+id: genome.fai
+# A FASTA index: one line per sequence, its name and length first. samtools faidx writes it;
+# the genome_length measurer reads the lengths from it (#465).
+states: []
+scope: run

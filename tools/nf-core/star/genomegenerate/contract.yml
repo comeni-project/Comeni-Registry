@@ -7,7 +7,15 @@ consumes:
   - {name: fasta, type_id: genome.fasta}
   - {name: gtf, type_id: annotation.gtf}
 produces: [{name: index, type_id: genome.index.star, format: [folder]}]
-params: []
+params:
+  # nf-core's module works this out inside main.nf when it is not given; here a rule decides it
+  # from the genome's length, cited, so the build shows it (comeni-labs#461, #217).
+  - name: sa_index_nbases
+    via: ext
+    key: args
+    template: "--genomeSAindexNbases {value}"
+    domain: {kind: integer, minimum: 4, maximum: 14}
+    tier_hint: 4
 priority: 0
 # tuple(meta, fasta) | tuple(meta2, gtf)
 nf_inputs: [{ports: [fasta]}, {ports: [gtf]}]

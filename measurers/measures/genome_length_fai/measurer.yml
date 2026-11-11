@@ -1,0 +1,11 @@
+declares: measurer
+id: genome_length_fai
+version: 1.0.0
+measures: genome_length
+# samtools faidx writes one line per sequence, its length second; the genome's length is
+# their sum. A tool's output, so this runs only in the pipeline (comeni-labs#465).
+by: tool
+uses: nf-core/samtools/faidx@1.24
+output: fai
+entry: piece/fai.py
+runs: [pipeline]

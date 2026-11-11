@@ -1,0 +1,26 @@
+declares: rule
+version: 1
+# STAR's suffix-array index size, from the genome's length: STAR's own formula, as nf-core's
+# module computes it inside main.nf, made a declared rule so the build shows the value and
+# where it came from (comeni-labs#461). Nobody stating the length makes it decided in the run,
+# from samtools faidx (#217).
+derives:
+  - fact: star_sa_index_nbases
+    kind: integer
+    source: genome_length
+    transform:
+      - {op: log2}
+      - {op: divide, by: 2}
+      - {op: subtract, by: 1}
+      - {op: at_most, by: 14}
+      - {op: round}
+    because: "the suffix-array index scales with the genome; a small genome needs a smaller one"
+    cite: "STAR manual 2.7.11b, section 2.2.5 (--genomeSAindexNbases)"
+decisions:
+  - decides: {effect: param, of: index_building, name: sa_index_nbases,
+              when_implementation: [nf-core/star/genomegenerate@2.7.11b]}
+    rows:
+      - when: {}
+        then: {fact: star_sa_index_nbases}
+        because: "STAR's own formula, as nf-core's module computes it"
+        cite: "STAR manual 2.7.11b, section 2.2.5"
