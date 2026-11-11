@@ -7,4 +7,4 @@ explain: >-
   A small table listing each sequence in the reference genome with its length, written by
   samtools faidx. It lets a tool read any region, and the pipeline add up the genome's length.
 states: []
-scope: run
+grain: study
