@@ -104,7 +104,7 @@ id: genome_length_fai
 version: 1.0.0
 measures: genome_length
 by: tool
-uses: nf-core/samtools/faidx@1.21   # the tool's contract id
+uses: nf-core/samtools/faidx@1.24   # the tool's contract id
 output: fai                         # the output port the parser reads
 entry: piece/fai.py
 runs: [pipeline]                    # a tool never runs on the server
