@@ -38,7 +38,7 @@ This contract declares no parameters.
 
 ## Types only this tool produces
 
-- `fastq.reads`
+None.
 
 ## Rules that select this tool
 
