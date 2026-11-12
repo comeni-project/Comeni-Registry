@@ -6,6 +6,7 @@ states: [trimmed, deduplicated, subsampled]
 # FASTQ arrives in pairs, and the entry channel says it only by using `fromFilePairs`, which is
 # a fact about the glob form rather than about the type.
 sample_columns: 2
+second_may_be_blank: true
 # Two forms, because a local run globs and a remote one cannot: Nextflow refuses a glob
 # pattern over https, so `fromFilePairs` works for `/data/*_R{1,2}.fastq.gz` and fails
 # for a URL. A list is taken as an explicit set of mates. The branch lives here rather
