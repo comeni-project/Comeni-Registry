@@ -114,10 +114,16 @@ runs: [pipeline]                    # a tool never runs on the server
 returns `Value(...)` or `Undetermined(...)` as a measurer's `result()` does. The pipeline runs the
 tool as an ordinary step and the parser after it. Test the parser against a recorded output.
 
+### Or let the forge draft it
+
+When you import a tool in Comeni's forge, its last step, **Measurers**, can draft this parser and
+its tests for you to approve. The forge checks the code against the rules below and runs the
+parser on the tool's own test output before it opens a pull request.
+
 ## The rules every piece keeps
 
-- **It imports only** from the allowlist in Comeni Labs' `tests/guards/test_inspector_pieces.py`:
-  no network, no files, no processes. It reads only the stream it is handed.
+- **It imports only** from the allowlist `mendel lint` checks (MD0027): no network, no files, no
+  processes. It reads only the stream it is handed.
 - **It never raises**: a piece that fails is that one inspection's answer.
 - **It never guesses**: below its threshold, a measure says *undetermined* and why.
 - **It never decides on a file's name.**
