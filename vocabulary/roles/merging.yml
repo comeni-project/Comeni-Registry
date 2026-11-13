@@ -1,10 +1,10 @@
 declares: role
-# Join a sample's pieces into one: the lanes of a sample sequenced over several, before anything
-# reads the sample (comeni-labs#466). A merger consumes every unit of one sample and produces the
-# same type at sample grain; the build places it only where a goal says an input may span
-# several rows per sample.
+# Join a sample's pieces into one (comeni-labs#466): the lanes of a sample sequenced over several,
+# before anything reads the sample, or the parts a split step made, after it. A merger consumes
+# every piece of one sample and produces the same type at sample grain; the build places it only
+# around the steps that need it, never as a routed producer.
 roles:
   - id: merging
     explain: >-
-      Joins the pieces of one sample, such as the lanes it was sequenced over, into one before
-      anything else reads it.
+      Joins the pieces of one sample, such as the lanes it was sequenced over or the parts a step
+      ran on, into one before anything else reads it.
