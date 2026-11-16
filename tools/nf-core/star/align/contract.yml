@@ -23,6 +23,7 @@ params:
   # So supplying it suppresses the module's, and this template must carry ID and SM too —
   # routing only the PL fragment would silently drop the read group STAR needs.
   - name: seq_platform
+    explain: "The sequencing platform written into each alignment's read group, such as ILLUMINA."
     tier_hint: 4
     # No `domain`, deliberately. The list of sequencing platforms cannot be
     # enumerated — a param whose legal values are open declares none, and
@@ -31,6 +32,7 @@ params:
     key: args
     template: "--outSAMattrRGline 'ID:${meta.id}' 'SM:${meta.id}' 'PL:{value}'"
   - name: star_ignore_sjdbgtf
+    explain: "Whether STAR aligns without the splice junctions from the gene annotation."
     default: false
     domain: {kind: boolean}
     because: >-

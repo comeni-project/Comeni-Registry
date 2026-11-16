@@ -13,6 +13,7 @@ produces: [{name: counts, type_id: counts.matrix::gene_level, format: [tsv]}]
 #
 params:
   - name: min_mqs
+    explain: "The lowest mapping quality a read needs to be counted."
     default: 0
     # MAPQ is a phred-scaled byte: featureCounts reads `-Q` as 0-255 and nothing outside
     # that is a smaller version of a valid threshold — it is a flag the tool rejects at

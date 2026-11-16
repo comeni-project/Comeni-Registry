@@ -16,6 +16,7 @@ produces:
   - {name: fai, type_id: genome.fai, format: [fai]}
 params:
   - name: get_sizes
+    explain: "Whether to also write a file listing each sequence's length."
     default: false
     domain: {kind: boolean}
     because: >-

@@ -11,6 +11,7 @@ params:
   # nf-core's module works this out inside main.nf when it is not given; here a rule decides it
   # from the genome's length, cited, so the build shows it (comeni-labs#461, #217).
   - name: sa_index_nbases
+    explain: "The size of STAR's genome index lookup table, set from the genome's length."
     via: ext
     key: args
     template: "--genomeSAindexNbases {value}"

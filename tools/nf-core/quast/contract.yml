@@ -43,6 +43,7 @@ produces:
     given.fasta: present
 params:
 - name: prefix
+  explain: "The name given to each assembly's report folder and files."
   because: main.nf reads task.ext.prefix and falls back to meta.id; this value names
     the output directory and report files.
   via: ext
