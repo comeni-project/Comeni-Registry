@@ -1,0 +1,12 @@
+declares: measurement
+id: assembly_length
+kind: integer
+minimum: 1
+unit: bp
+description: "Total length of an assembly"
+describes: assembly.fasta
+cite: "Gurevich et al. 2013, doi:10.1093/bioinformatics/btt086"
+explain: >-
+  How many bases the assembly holds over all its contigs, such as about 2.8 million for
+  Staphylococcus aureus. Far from the species' genome size suggests contamination or a
+  missing part.

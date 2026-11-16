@@ -1,0 +1,11 @@
+declares: format
+id: fasta
+version: 1.0.0
+# An assembly: contigs or scaffolds, one file a sample. A reference genome is FASTA too, and
+# is told apart by the person naming it a reference, never by its content (comeni-labs#511).
+reads: [assembly.fasta]
+extensions: [.fasta, .fna, .fa, .fas]
+record: contig
+runs: server
+files: "1..1"
+entry: piece/fasta.py

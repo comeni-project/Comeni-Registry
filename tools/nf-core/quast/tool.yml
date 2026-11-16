@@ -1,0 +1,5 @@
+declares: tool
+id: nf-core/quast
+name: quast
+description: QUAST calculates quality metrics for genome assemblies
+homepage: http://bioinf.spbau.ru/quast

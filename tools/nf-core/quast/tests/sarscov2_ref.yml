@@ -1,0 +1,22 @@
+declares: test
+inputs:
+  gff:
+  - genomics/sarscov2/genome/genome.gff3.gz
+  fasta:
+  - genomics/sarscov2/genome/genome.fasta.gz
+  consensus:
+  - genomics/sarscov2/illumina/fasta/contigs.fasta
+params:
+  prefix: quast
+expect:
+- port: results
+  pattern: quast
+- port: tsv
+  pattern: quast.tsv
+- port: misassemblies
+  pattern: quast_misassemblies.tsv
+- port: unaligned
+  pattern: quast_unaligned.tsv
+contract: nf-core/quast@5.3.0
+name: sarscov2_ref
+data_commit: 3170f64e3b73600f2cabe1db39a1d14bbae009e4
