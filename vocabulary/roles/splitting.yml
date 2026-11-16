@@ -5,6 +5,7 @@ declares: role
 # whole.
 roles:
   - id: splitting
+    label: Split into parts
     explain: >-
       Splits one sample's data into parts that later steps run on in parallel, merged back per
       sample afterwards.

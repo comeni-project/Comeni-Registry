@@ -5,6 +5,7 @@ declares: role
 # around the steps that need it, never as a routed producer.
 roles:
   - id: merging
+    label: Merge files
     explain: >-
       Joins the pieces of one sample, such as the lanes it was sequenced over or the parts a step
       ran on, into one before anything else reads it.

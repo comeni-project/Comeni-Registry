@@ -12,6 +12,7 @@ declares: role
 # invariant 11 says the layout is the author's business.
 roles:
   - id: measurement
+    label: Measure a fact
     explain: >-
       Measures the data during the run, such as a genome's length or every read's length, so a
       setting can be decided from it or an earlier estimate confirmed.

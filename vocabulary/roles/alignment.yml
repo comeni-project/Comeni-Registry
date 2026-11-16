@@ -11,5 +11,6 @@ declares: role
 # invariant 11 says the layout is the author's business.
 roles:
   - id: alignment
+    label: Align reads
     explain: >-
       Finds where each sequencing read came from on the reference genome and writes the result as a BAM file.
