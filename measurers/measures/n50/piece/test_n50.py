@@ -1,9 +1,8 @@
 """N50: the length at which the longest contigs hold half the assembly."""
 
+import n50
 from comeni_inspect.run import inspect
 from support_pieces import request_for
-
-import n50
 
 
 def _fact(case):
