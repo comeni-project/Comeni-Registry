@@ -10,7 +10,36 @@ Homepage: http://www.htslib.org/
 
 Cite: doi:10.1093/bioinformatics/btp352
 
-2 contract(s) in this layer stack.
+3 contract(s) in this layer stack.
+
+### `nf-core/samtools/faidx@1.24`
+
+- **Process:** `SAMTOOLS_FAIDX`
+- **Include:** `modules/nf-core/samtools/faidx/main`
+- **Roles:** `fasta_indexing`
+- **Container:** `community.wave.seqera.io/library/htslib_samtools:1.24--d697cfb9dce007cd`
+- **Priority:** 0
+
+#### Ports
+
+| Direction | Port | Type | States |
+|---|---|---|---|
+| consumes | `fasta` | `genome.fasta` | — |
+| consumes | `fai` | `genome.fai` | — |
+| produces | `fai` | `genome.fai` | — |
+
+#### Parameters
+
+| Parameter | Tier hint | Route | Default |
+|---|---|---|---|
+| `get_sizes` | — | `positional` | `False` |
+
+#### Provenance
+
+- source: `nf-core-meta-yml`
+- drafted_by: `claude`
+- approved_by: `unreviewed`
+- approved_at: ``
 
 ### `nf-core/samtools/index@1.24`
 
@@ -69,6 +98,7 @@ This contract declares no parameters.
 ## Types only this tool produces
 
 - `alignment.bai`
+- `genome.fai`
 
 ## Rules that select this tool
 

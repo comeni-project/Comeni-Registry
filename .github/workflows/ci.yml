@@ -27,7 +27,7 @@ env:
   #
   # Bumping this is a deliberate commit in *this* repository, and each tool's README regenerates
   # in the same diff — which is the whole reason those pages are committed rather than published.
-  ENGINE_REF: 5542435368cc2adcfe40eee263a372e2d08637a2
+  ENGINE_REF: 094af4c0341f36edf7bc86cc3910d8be12b60d0b
 
 jobs:
   check:
@@ -81,3 +81,15 @@ jobs:
       # needs the network, and is a different question — Comeni-Labs issue #64.
       - name: No module has been hand-edited
         run: comeni-vendor check --registry .
+
+      # **A measurer's parser is code, and this is where its own tests run** (comeni-labs#487).
+      # The forge drafts parsers and never runs one on Mendel's server: it checks them with
+      # `mendel lint` (MD0027 — in the step above once ENGINE_REF reaches an engine that has it)
+      # and proves them on the tool's real output in a Wiener run.
+      # The cases a parser's author wrote (a value, an empty output, a malformed line) run here,
+      # with nothing but the stdlib-only runner and pytest, and no secrets.
+      - name: The pieces' tests pass
+        run: |
+          uv run --no-project --with pytest \
+            --with "comeni-inspect @ git+https://github.com/comeni-project/Comeni-Labs@${ENGINE_REF}#subdirectory=packages/comeni-inspect" \
+            pytest measurers -q

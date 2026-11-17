@@ -1,0 +1,11 @@
+declares: measurement
+id: n50
+kind: integer
+minimum: 1
+unit: bp
+description: "N50 of an assembly"
+describes: assembly.fasta
+cite: "Gurevich et al. 2013, doi:10.1093/bioinformatics/btt086"
+explain: >-
+  The contig length at which contigs that long or longer hold half the assembly. Higher is
+  more contiguous: a finished genome's N50 is its chromosome's length.

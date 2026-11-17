@@ -61,7 +61,9 @@ Cite: doi:10.1093/bioinformatics/bts635
 
 #### Parameters
 
-This contract declares no parameters.
+| Parameter | Tier hint | Route | Default |
+|---|---|---|---|
+| `sa_index_nbases` | 4 | `ext` | — |
 
 #### Provenance
 

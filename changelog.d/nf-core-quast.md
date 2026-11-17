@@ -1,0 +1,1 @@
+- `nf-core/quast@5.3.0`: added, forged in Comeni.

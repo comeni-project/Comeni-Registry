@@ -1,0 +1,8 @@
+declares: role
+# One role per file is this layer's convention and `mendel registry lint` enforces it here.
+roles:
+  - id: fasta_indexing
+    label: Index the genome
+    explain: >-
+      Indexes a reference sequence so its sequences, their lengths and any region can be read
+      without reading the whole file.

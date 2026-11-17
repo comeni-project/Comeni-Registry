@@ -9,5 +9,6 @@ declares: role
 # invariant 11 says the layout is the author's business.
 roles:
   - id: bam_indexing
+    label: Index alignments
     explain: >-
       Builds a .bai index for a coordinate-sorted BAM. Genome viewers and region-based tools need it to jump to one part of the genome.

@@ -1,0 +1,32 @@
+declares: contract
+id: nf-core/samtools/faidx@1.24
+roles: [fasta_indexing]
+nf_process: SAMTOOLS_FAIDX
+nf_include: modules/nf-core/samtools/faidx/main
+consumes:
+  - {name: fasta, type_id: genome.fasta}
+  # An existing index makes samtools reuse it; this registry's pipelines never hold one, so the
+  # port is left out and the module receives `[]` in its slot (shared slot, #464).
+  - {name: fai, type_id: genome.fai, required: false}
+# The module writes a .fai only when it was not handed one. Declared as always written: the
+# router cannot yet switch an optional input off to meet `{given.fai: absent}`, and no pipeline
+# here supplies an index. A run that did would leave the genome_length measurement unmatched,
+# and the run stops on the join rather than measuring nothing (MD0611 notes the difference).
+produces:
+  - {name: fai, type_id: genome.fai, format: [fai]}
+params:
+  - name: get_sizes
+    explain: "Whether to also write a file listing each sequence's length."
+    default: false
+    domain: {kind: boolean}
+    because: >-
+      The chromosome sizes file is a by-product nothing in this registry reads; the .fai
+      carries the same lengths in its second column.
+    via: positional
+priority: 0
+# tuple(meta, fasta, fai) | val get_sizes
+nf_inputs:
+  - {ports: [fasta, fai], join: broadcast}
+  - {param: get_sizes}
+container: community.wave.seqera.io/library/htslib_samtools:1.24--d697cfb9dce007cd
+provenance: {source: nf-core-meta-yml, drafted_by: claude, approved_by: unreviewed, approved_at: ""}

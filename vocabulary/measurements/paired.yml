@@ -4,6 +4,7 @@ kind: boolean
 description: "Whether the library was sequenced paired-end"
 cite: "Conesa et al. 2016, doi:10.1186/s13059-016-0881-8"
 describes: fastq.reads
+row: second_file_present
 meta_key: single_end
 meta_values:
   - {when: true, then: false}

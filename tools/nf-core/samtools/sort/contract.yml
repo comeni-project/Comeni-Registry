@@ -7,6 +7,7 @@ consumes: [{name: bam, type_id: alignment.bam}]
 produces: [{name: bam, type_id: alignment.bam::coordinate_sorted, format: [bam]}]
 params:
   - name: index_format
+    explain: "The kind of index written beside each sorted alignment file: BAI or CSI."
     default: bai
     domain: {kind: enum, values: [bai, csi]}
     because: >-

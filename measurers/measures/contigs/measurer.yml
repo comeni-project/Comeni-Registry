@@ -1,0 +1,10 @@
+declares: measurer
+id: contigs
+version: 1.0.0
+measures: contigs
+by: code
+record: contig
+runs: [server]
+# Decided once a contig was read. Over a head, the fact is an estimate (coverage: head).
+decided: {min_records: 1}
+entry: piece/contigs.py

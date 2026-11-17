@@ -1,0 +1,10 @@
+declares: module
+id: nf-core/samtools/faidx
+licence: MIT
+upstream:
+  repo: https://github.com/nf-core/modules.git
+  sha: 9339809fcb90af8a8b7051e6cd914894d5c52002
+  path: modules/nf-core/samtools/faidx
+excluded:
+- tests
+digest: sha256:b8709e70ee7327659471508118016c32fd96fbe1155cd27accfbac244ecb0b5f

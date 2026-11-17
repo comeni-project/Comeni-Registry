@@ -1,0 +1,10 @@
+declares: vocabulary
+id: genome.fai
+# A FASTA index: one line per sequence, its name and length first. samtools faidx writes it;
+# the genome_length measurer reads the lengths from it (comeni-labs#465).
+name: reference genome index (.fai)
+explain: >-
+  A small table listing each sequence in the reference genome with its length, written by
+  samtools faidx. It lets a tool read any region, and the pipeline add up the genome's length.
+states: []
+grain: study

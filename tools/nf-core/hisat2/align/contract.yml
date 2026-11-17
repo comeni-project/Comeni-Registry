@@ -21,6 +21,7 @@ params:
   #   rg = args.contains("--rg-id") ? "" : "--rg-id ${prefix} --rg SM:${prefix}"
   # HISAT2 takes one KEY:VALUE per `--rg`, so PL is its own flag rather than a field.
   - name: seq_platform
+    explain: "The sequencing platform written into each alignment's read group, such as ILLUMINA."
     tier_hint: 4
     # No `domain`, deliberately. The list of sequencing platforms cannot be
     # enumerated — a param whose legal values are open declares none, and
@@ -29,6 +30,7 @@ params:
     key: args
     template: "--rg-id ${meta.id} --rg SM:${meta.id} --rg PL:{value}"
   - name: save_unaligned
+    explain: "Whether reads that did not align are also written out, as FASTQ files."
     default: false
     domain: {kind: boolean}
     because: >-

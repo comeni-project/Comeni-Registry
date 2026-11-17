@@ -1,0 +1,10 @@
+declares: module
+id: nf-core/cat/fastq
+licence: MIT
+upstream:
+  repo: https://github.com/nf-core/modules.git
+  sha: 9339809fcb90af8a8b7051e6cd914894d5c52002
+  path: modules/nf-core/cat/fastq
+excluded:
+- tests
+digest: sha256:b5903ad3ef8b90d986a61dd33200e6fa56598669856f7ffbef67fed73e8964ed

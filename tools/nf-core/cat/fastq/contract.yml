@@ -1,0 +1,14 @@
+declares: contract
+id: nf-core/cat/fastq@9.5
+roles: [merging]
+nf_process: CAT_FASTQ
+nf_include: modules/nf-core/cat/fastq/main
+# Every lane of one sample in one call: the module takes the files interleaved (first mate, second
+# mate, per lane) and writes one file per mate (comeni-labs#466).
+consumes: [{name: reads, type_id: fastq.reads, grain: sample, many: true}]
+produces: [{name: reads, type_id: fastq.reads, format: [fastq]}]
+params: []
+priority: 0
+nf_inputs: [{ports: [reads]}]
+container: community.wave.seqera.io/library/coreutils_grep_gzip_lbzip2_pruned:838ba80435a629f8
+provenance: {source: nf-core-meta-yml, drafted_by: claude, approved_by: unreviewed, approved_at: ""}

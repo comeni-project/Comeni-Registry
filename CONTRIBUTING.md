@@ -23,7 +23,6 @@ The convention this layer uses, and a good default to copy:
 |---|---|
 | `tools/<namespace>/<tool>/` | what the tool is (`tool.yml`), its page, and one folder per subtool |
 | `tools/<namespace>/<tool>/types/` | a type only that tool produces |
-| `profilers/<id>/` | a use of a tool to measure the data |
 | `vocabulary/types/` | types more than one tool touches |
 | `vocabulary/measurements/` | measurements — `declares: measurement` **and** an `id:` |
 | `vocabulary/roles/`, `vocabulary/families/` | the roles a contract may fill; the families of types |

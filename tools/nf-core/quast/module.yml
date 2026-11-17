@@ -1,0 +1,10 @@
+declares: module
+id: nf-core/quast
+licence: MIT
+upstream:
+  repo: https://github.com/nf-core/modules.git
+  sha: 86a1000afbd6b209b7f72715622cad326964b96d
+  path: modules/nf-core/quast
+excluded:
+- tests
+digest: sha256:3b19724653bc4272bc8486235a4200c666c3c9af2ed883c5aa91a8ad25241a74

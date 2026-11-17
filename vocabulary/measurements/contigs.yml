@@ -1,0 +1,10 @@
+declares: measurement
+id: contigs
+kind: integer
+minimum: 1
+description: "Number of contigs in an assembly"
+describes: assembly.fasta
+cite: "Gurevich et al. 2013, doi:10.1093/bioinformatics/btt086"
+explain: >-
+  How many separate sequences the assembly is in. A finished bacterial genome is one to a few
+  (the chromosome and any plasmids); a draft is often tens or hundreds of contigs.

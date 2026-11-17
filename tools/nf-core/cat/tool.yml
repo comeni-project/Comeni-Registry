@@ -1,0 +1,8 @@
+declares: tool
+id: nf-core/cat
+name: cat (GNU coreutils)
+description: >-
+  Concatenates files. Here it joins the lanes a sample was sequenced over into one file per
+  mate, before anything reads the sample.
+homepage: https://www.gnu.org/software/coreutils/
+cite: "GNU coreutils, https://www.gnu.org/software/coreutils/"
