@@ -34,7 +34,7 @@ Homepage: http://bioinf.spbau.ru/quast
 
 | Parameter | Tier hint | Route | Default |
 |---|---|---|---|
-| `prefix` | — | `ext` | `${meta.id}` |
+| `prefix` | — | `ext` | — |
 
 #### Provenance
 
