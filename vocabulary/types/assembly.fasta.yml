@@ -2,6 +2,6 @@ declares: vocabulary
 id: assembly.fasta
 entry_channel: 'Channel.fromPath(params.{param}, checkIfExists: true).map { f -> [
   [id: f.baseName], f ] }'
-name: Assembly sequences (FASTA)
+name: assembly sequences (FASTA)
 explain: Assembled contig or scaffold sequences in FASTA format for one sample. Usually
   produced by an assembly tool and supplied to QUAST for quality assessment.

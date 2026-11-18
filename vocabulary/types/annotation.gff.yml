@@ -3,6 +3,6 @@ id: annotation.gff
 grain: study
 entry_channel: 'Channel.fromPath(params.{param}, checkIfExists: true).map { f -> [
   [id: f.baseName], f ] }'
-name: Reference annotation (GFF)
+name: reference annotation (GFF)
 explain: Genomic features in GFF format for the reference genome, shared across the
   run. Usually supplied with the reference genome or produced by an annotation tool.
