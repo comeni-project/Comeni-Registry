@@ -16,6 +16,18 @@ derives:
       - {op: round}
     because: "the suffix-array index scales with the genome; a small genome needs a smaller one"
     cite: "STAR manual 2.7.11b, section 2.2.5 (--genomeSAindexNbases)"
+  - fact: star_genome_generate_gb
+    kind: integer
+    source: genome_length
+    # About 10 bytes a base, in gigabytes; adding 1 before rounding keeps a fraction from
+    # rounding down, and small genomes still get 2 GB to start STAR at all.
+    transform:
+      - {op: multiply, by: 0.00000001}
+      - {op: add, by: 1}
+      - {op: round}
+      - {op: at_least, by: 2}
+    because: "STAR's index build needs memory in proportion to the genome, about 10 bytes a base"
+    cite: "STAR manual 2.7.11b, hardware requirements (~10 x genome size bytes; 32 GB for human)"
 decisions:
   - decides: {effect: param, of: index_building, name: sa_index_nbases,
               when_implementation: [nf-core/star/genomegenerate@2.7.11b]}
@@ -24,3 +36,10 @@ decisions:
         then: {fact: star_sa_index_nbases}
         because: "STAR's own formula, as nf-core's module computes it"
         cite: "STAR manual 2.7.11b, section 2.2.5"
+  - decides: {effect: param, of: index_building, name: memory,
+              when_implementation: [nf-core/star/genomegenerate@2.7.11b]}
+    rows:
+      - when: {}
+        then: {fact: star_genome_generate_gb}
+        because: "about 10 bytes a base of genome, as STAR's manual sizes it"
+        cite: "STAR manual 2.7.11b, hardware requirements"

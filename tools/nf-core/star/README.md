@@ -63,6 +63,7 @@ Cite: doi:10.1093/bioinformatics/bts635
 
 | Parameter | Tier hint | Route | Default |
 |---|---|---|---|
+| `memory` | 4 | `directive` | — |
 | `sa_index_nbases` | 4 | `ext` | — |
 
 #### Provenance
