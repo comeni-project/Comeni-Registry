@@ -1,0 +1,1 @@
+Every contract names its container by digest as well as tag (`name:tag@sha256:…`), so a run pulls the same image whatever the tag points at later. Pinned with `comeni-vendor pin-containers`; needs the engine that emits the digest (comeni-labs#308).

@@ -17,7 +17,7 @@ Cite: doi:10.1038/s41587-019-0201-4
 - **Process:** `HISAT2_ALIGN`
 - **Include:** `modules/nf-core/hisat2/align/main`
 - **Roles:** `alignment`
-- **Container:** `community.wave.seqera.io/library/hisat2_samtools:6ca0ef72b662d5c8`
+- **Container:** `community.wave.seqera.io/library/hisat2_samtools:6ca0ef72b662d5c8@sha256:f46d9c7aa1f537523b79ce64929c1cb222f732b5b8970c55910de59ab64e2413`
 - **Priority:** 0
 
 #### Ports
@@ -47,7 +47,7 @@ Cite: doi:10.1038/s41587-019-0201-4
 - **Process:** `HISAT2_BUILD`
 - **Include:** `modules/nf-core/hisat2/build/main`
 - **Roles:** `index_building`
-- **Container:** `quay.io/biocontainers/hisat2:2.2.2--h503566f_0`
+- **Container:** `quay.io/biocontainers/hisat2:2.2.2--h503566f_0@sha256:8170709af57fd3fb89eed560e6cddd3827cd97a5385565c0598d4a16c4a9a83f`
 - **Priority:** 0
 
 #### Ports

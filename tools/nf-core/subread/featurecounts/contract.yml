@@ -32,5 +32,5 @@ priority: 0
 # is wanted and `broadcast` says so out loud. This was the emitter's unconditional default:
 # correct here, and silently a cross product for any second *per-sample* port. Audit A92.
 nf_inputs: [{ports: [bam, annotation], join: broadcast}]
-container: quay.io/biocontainers/subread:2.1.1--h577a1d6_0
+container: quay.io/biocontainers/subread:2.1.1--h577a1d6_0@sha256:a0f7ea960dd0f55240b330b5c4515388a493e266a7b427d6a59a39164bc14865
 provenance: {source: nf-core-meta-yml, drafted_by: hand, approved_by: rafael, approved_at: "2026-08-03"}

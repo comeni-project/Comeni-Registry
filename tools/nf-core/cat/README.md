@@ -17,7 +17,7 @@ Cite: GNU coreutils, https://www.gnu.org/software/coreutils/
 - **Process:** `CAT_FASTQ`
 - **Include:** `modules/nf-core/cat/fastq/main`
 - **Roles:** `merging`
-- **Container:** `community.wave.seqera.io/library/coreutils_grep_gzip_lbzip2_pruned:838ba80435a629f8`
+- **Container:** `community.wave.seqera.io/library/coreutils_grep_gzip_lbzip2_pruned:838ba80435a629f8@sha256:63c2c6b22e83b2f656e88fbb1553e595da4e9e58794e3bfcb98b20b3837f328a`
 - **Priority:** 0
 
 #### Ports

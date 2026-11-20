@@ -8,5 +8,5 @@ produces: [{name: reads, type_id: fastq.reads::trimmed, format: [fq]}]
 params: []
 priority: 0
 nf_inputs: [{ports: [reads]}]
-container: community.wave.seqera.io/library/trim-galore:2.3.0--6a38a479b4972363
+container: community.wave.seqera.io/library/trim-galore:2.3.0--6a38a479b4972363@sha256:51c7ccb48048e4b08bcbc60796d9be8e41cda648dba02e8710f71c1b74f008d8
 provenance: {source: nf-core-meta-yml, drafted_by: hand, approved_by: rafael, approved_at: "2026-08-03"}

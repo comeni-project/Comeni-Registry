@@ -52,7 +52,7 @@ roles:
 - qc_per_sample
 priority_because: Neutral priority; the approved competition answer requests no selection
   rule.
-container: community.wave.seqera.io/library/quast:5.3.0--755a216045b6dbdd
+container: community.wave.seqera.io/library/quast:5.3.0--755a216045b6dbdd@sha256:56433b1d2dc61ff2d01357af17223793f0a98b9317af99069b0211cfa2d21edb
 nf_inputs:
 - ports:
   - consensus
