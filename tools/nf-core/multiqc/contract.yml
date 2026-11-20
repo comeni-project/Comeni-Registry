@@ -13,5 +13,5 @@ priority: 0
 # One tuple: `val(meta), path(multiqc_files)`, then four optional files (config, logo, replace
 # names, sample names) passed empty. The engine gathers the reports as `[meta, files]` (#507).
 nf_inputs: [{ports: [reports], pad: 4}]
-container: community.wave.seqera.io/library/multiqc:1.35--c17fb751507e9dfc
+container: community.wave.seqera.io/library/multiqc:1.35--c17fb751507e9dfc@sha256:ae074e961979ea85c72c6c67a8ed432fa3368c736b8fe37799f7223901ac84ab
 provenance: {source: nf-core-meta-yml, drafted_by: hand, approved_by: rafael, approved_at: "2026-08-03"}

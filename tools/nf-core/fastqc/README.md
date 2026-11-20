@@ -15,7 +15,7 @@ Homepage: https://www.bioinformatics.babraham.ac.uk/projects/fastqc/
 - **Process:** `FASTQC`
 - **Include:** `modules/nf-core/fastqc/main`
 - **Roles:** `qc_per_sample`
-- **Container:** `quay.io/biocontainers/fastqc:0.12.1--hdfd78af_0`
+- **Container:** `quay.io/biocontainers/fastqc:0.12.1--hdfd78af_0@sha256:e194048df39c3145d9b4e0a14f4da20b59d59250465b6f2a9cb698445fd45900`
 - **Priority:** 0
 
 #### Ports

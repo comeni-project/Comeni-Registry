@@ -15,7 +15,7 @@ Homepage: https://multiqc.info/
 - **Process:** `MULTIQC`
 - **Include:** `modules/nf-core/multiqc/main`
 - **Roles:** `qc_aggregation`
-- **Container:** `community.wave.seqera.io/library/multiqc:1.35--c17fb751507e9dfc`
+- **Container:** `community.wave.seqera.io/library/multiqc:1.35--c17fb751507e9dfc@sha256:ae074e961979ea85c72c6c67a8ed432fa3368c736b8fe37799f7223901ac84ab`
 - **Priority:** 0
 
 #### Ports

@@ -15,7 +15,7 @@ Homepage: https://www.bioinformatics.babraham.ac.uk/projects/trim_galore/
 - **Process:** `TRIMGALORE`
 - **Include:** `modules/nf-core/trimgalore/main`
 - **Roles:** `trimming`
-- **Container:** `community.wave.seqera.io/library/trim-galore:2.3.0--6a38a479b4972363`
+- **Container:** `community.wave.seqera.io/library/trim-galore:2.3.0--6a38a479b4972363@sha256:51c7ccb48048e4b08bcbc60796d9be8e41cda648dba02e8710f71c1b74f008d8`
 - **Priority:** 0
 
 #### Ports

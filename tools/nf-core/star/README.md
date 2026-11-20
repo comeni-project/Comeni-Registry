@@ -17,7 +17,7 @@ Cite: doi:10.1093/bioinformatics/bts635
 - **Process:** `STAR_ALIGN`
 - **Include:** `modules/nf-core/star/align/main`
 - **Roles:** `alignment`
-- **Container:** `community.wave.seqera.io/library/htslib_samtools_star_gawk:ae438e9a604351a4`
+- **Container:** `community.wave.seqera.io/library/htslib_samtools_star_gawk:ae438e9a604351a4@sha256:4a468118dbd7491a69bf9813c68233afa8558d1f3380fd8cab03e0e3d3135190`
 - **Priority:** 10
 
 #### Ports
@@ -48,7 +48,7 @@ Cite: doi:10.1093/bioinformatics/bts635
 - **Process:** `STAR_GENOMEGENERATE`
 - **Include:** `modules/nf-core/star/genomegenerate/main`
 - **Roles:** `index_building`
-- **Container:** `community.wave.seqera.io/library/htslib_samtools_star_gawk:ae438e9a604351a4`
+- **Container:** `community.wave.seqera.io/library/htslib_samtools_star_gawk:ae438e9a604351a4@sha256:4a468118dbd7491a69bf9813c68233afa8558d1f3380fd8cab03e0e3d3135190`
 - **Priority:** 0
 
 #### Ports
