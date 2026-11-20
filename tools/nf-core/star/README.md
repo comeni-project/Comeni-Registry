@@ -33,6 +33,7 @@ Cite: doi:10.1093/bioinformatics/bts635
 
 | Parameter | Tier hint | Route | Default |
 |---|---|---|---|
+| `memory` | 4 | `directive` | — |
 | `seq_platform` | 4 | `ext` | — |
 | `star_ignore_sjdbgtf` | — | `positional` | `False` |
 

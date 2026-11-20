@@ -43,3 +43,10 @@ decisions:
         then: {fact: star_genome_generate_gb}
         because: "about 10 bytes a base of genome, as STAR's manual sizes it"
         cite: "STAR manual 2.7.11b, hardware requirements"
+  - decides: {effect: param, of: alignment, name: memory,
+              when_implementation: [nf-core/star/align@2.7.11b]}
+    rows:
+      - when: {}
+        then: {fact: star_genome_generate_gb}
+        because: "STAR loads the index it built, about 10 bytes a base of genome"
+        cite: "STAR manual 2.7.11b, hardware requirements"
