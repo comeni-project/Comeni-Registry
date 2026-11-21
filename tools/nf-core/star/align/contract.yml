@@ -42,6 +42,15 @@ params:
       A91: it was a hardcoded `false` in the call, outside the tier ladder and answerable by
       nobody, because no route reached a bare `val`.
     via: positional
+  # nf-core's label asks every alignment for 72 GB whatever the genome (comeni-labs#601): STAR
+  # loads the index it built, so the same rule as the index build sizes it. The genome's length
+  # reaches this step on the index's `meta2`; the label stays when it is unknown.
+  - name: memory
+    explain: "How much memory STAR asks for while it aligns, set from the genome's length."
+    via: directive
+    template: "{value} GB"
+    domain: {kind: integer, minimum: 1, maximum: 512}
+    tier_hint: 4
 # STAR is the nf-core/rnaseq default aligner, so this registry prefers it by
 # convention (tier 2). A tier-3 rule keyed on read_length supersedes this with a
 # citation once the rule format lands.

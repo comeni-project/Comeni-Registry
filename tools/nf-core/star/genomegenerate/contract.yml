@@ -17,6 +17,14 @@ params:
     template: "--genomeSAindexNbases {value}"
     domain: {kind: integer, minimum: 4, maximum: 14}
     tier_hint: 4
+  # nf-core's label asks every STAR task for 72 GB whatever the genome (comeni-labs#509): a rule
+  # sizes it from the genome's length instead, and the label stays when the length is unknown.
+  - name: memory
+    explain: "How much memory STAR asks for while it builds the index, set from the genome's length."
+    via: directive
+    template: "{value} GB"
+    domain: {kind: integer, minimum: 1, maximum: 512}
+    tier_hint: 4
 priority: 0
 # tuple(meta, fasta) | tuple(meta2, gtf)
 nf_inputs: [{ports: [fasta]}, {ports: [gtf]}]
