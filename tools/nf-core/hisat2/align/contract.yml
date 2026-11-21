@@ -45,5 +45,5 @@ nf_inputs:
   - {ports: [index]}
   - {empty: 2, because: "splicesites are optional; HISAT2_EXTRACTSPLICESITES is not vendored"}
   - {param: save_unaligned}
-container: community.wave.seqera.io/library/hisat2_samtools:6ca0ef72b662d5c8
+container: community.wave.seqera.io/library/hisat2_samtools:6ca0ef72b662d5c8@sha256:f46d9c7aa1f537523b79ce64929c1cb222f732b5b8970c55910de59ab64e2413
 provenance: {source: nf-core-meta-yml, drafted_by: hand, approved_by: rafael, approved_at: "2026-08-03"}

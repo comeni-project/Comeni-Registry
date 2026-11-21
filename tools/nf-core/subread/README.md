@@ -17,7 +17,7 @@ Cite: doi:10.1093/bioinformatics/btt656
 - **Process:** `SUBREAD_FEATURECOUNTS`
 - **Include:** `modules/nf-core/subread/featurecounts/main`
 - **Roles:** `quantification`
-- **Container:** `quay.io/biocontainers/subread:2.1.1--h577a1d6_0`
+- **Container:** `quay.io/biocontainers/subread:2.1.1--h577a1d6_0@sha256:a0f7ea960dd0f55240b330b5c4515388a493e266a7b427d6a59a39164bc14865`
 - **Priority:** 0
 
 #### Ports

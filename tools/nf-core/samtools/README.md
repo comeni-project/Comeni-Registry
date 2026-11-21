@@ -17,7 +17,7 @@ Cite: doi:10.1093/bioinformatics/btp352
 - **Process:** `SAMTOOLS_FAIDX`
 - **Include:** `modules/nf-core/samtools/faidx/main`
 - **Roles:** `fasta_indexing`
-- **Container:** `community.wave.seqera.io/library/htslib_samtools:1.24--d697cfb9dce007cd`
+- **Container:** `community.wave.seqera.io/library/htslib_samtools:1.24--d697cfb9dce007cd@sha256:a55ddea590e567a91df592300a960aa534cfc1bd16e7623e3938ec21f4f3df15`
 - **Priority:** 0
 
 #### Ports
@@ -46,7 +46,7 @@ Cite: doi:10.1093/bioinformatics/btp352
 - **Process:** `SAMTOOLS_INDEX`
 - **Include:** `modules/nf-core/samtools/index/main`
 - **Roles:** `bam_indexing`
-- **Container:** `community.wave.seqera.io/library/htslib_samtools:1.24--d697cfb9dce007cd`
+- **Container:** `community.wave.seqera.io/library/htslib_samtools:1.24--d697cfb9dce007cd@sha256:a55ddea590e567a91df592300a960aa534cfc1bd16e7623e3938ec21f4f3df15`
 - **Priority:** 0
 
 #### Ports
@@ -72,7 +72,7 @@ This contract declares no parameters.
 - **Process:** `SAMTOOLS_SORT`
 - **Include:** `modules/nf-core/samtools/sort/main`
 - **Roles:** `bam_sorting`
-- **Container:** `community.wave.seqera.io/library/htslib_samtools:1.24--d697cfb9dce007cd`
+- **Container:** `community.wave.seqera.io/library/htslib_samtools:1.24--d697cfb9dce007cd@sha256:a55ddea590e567a91df592300a960aa534cfc1bd16e7623e3938ec21f4f3df15`
 - **Priority:** 0
 
 #### Ports

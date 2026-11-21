@@ -15,7 +15,7 @@ Homepage: http://bioinf.spbau.ru/quast
 - **Process:** `QUAST`
 - **Include:** `modules/nf-core/quast/main`
 - **Roles:** `qc_per_sample`
-- **Container:** `community.wave.seqera.io/library/quast:5.3.0--755a216045b6dbdd`
+- **Container:** `community.wave.seqera.io/library/quast:5.3.0--755a216045b6dbdd@sha256:56433b1d2dc61ff2d01357af17223793f0a98b9317af99069b0211cfa2d21edb`
 - **Priority:** 0
 
 #### Ports

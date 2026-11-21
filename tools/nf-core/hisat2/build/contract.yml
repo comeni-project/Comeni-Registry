@@ -14,5 +14,5 @@ nf_inputs:
   - {ports: [fasta]}
   - {ports: [gtf]}
   - {empty: 2, because: "splicesites are optional; HISAT2_EXTRACTSPLICESITES is not vendored"}
-container: quay.io/biocontainers/hisat2:2.2.2--h503566f_0
+container: quay.io/biocontainers/hisat2:2.2.2--h503566f_0@sha256:8170709af57fd3fb89eed560e6cddd3827cd97a5385565c0598d4a16c4a9a83f
 provenance: {source: nf-core-meta-yml, drafted_by: hand, approved_by: rafael, approved_at: "2026-08-03"}
