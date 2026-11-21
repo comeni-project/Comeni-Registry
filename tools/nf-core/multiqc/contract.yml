@@ -10,6 +10,8 @@ consumes: [{name: reports, type_id: qc.report, grain: study, many: true}]
 produces: [{name: report, type_id: qc.report::aggregated, format: [html]}]
 params: []
 priority: 0
-nf_inputs: [{ports: [reports]}]
+# One tuple: `val(meta), path(multiqc_files)`, then four optional files (config, logo, replace
+# names, sample names) passed empty. The engine gathers the reports as `[meta, files]` (#507).
+nf_inputs: [{ports: [reports], pad: 4}]
 container: community.wave.seqera.io/library/multiqc:1.35--c17fb751507e9dfc
 provenance: {source: nf-core-meta-yml, drafted_by: hand, approved_by: rafael, approved_at: "2026-08-03"}
