@@ -27,7 +27,7 @@ env:
   #
   # Bumping this is a deliberate commit in *this* repository, and each tool's README regenerates
   # in the same diff — which is the whole reason those pages are committed rather than published.
-  ENGINE_REF: 094af4c0341f36edf7bc86cc3910d8be12b60d0b
+  ENGINE_REF: deab0d4160910d71bb8551aa1e146214d893eb85
 
 jobs:
   check:
